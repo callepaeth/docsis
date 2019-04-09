@@ -49,6 +49,7 @@
 
 extern int yydebug;
 extern symbol_type *global_symtable;
+extern size_t global_symtable_nsyms;
 
 unsigned int line=1; /* On parse errors, we print the line number */
 
@@ -168,7 +169,7 @@ struct symbol_entry
 {
  int i;
 
- for ( i=0; i<NUM_IDENTIFIERS; i++) {
+ for ( i=0; i<global_symtable_nsyms; i++) {
         if (!strcmp(sym_str, global_symtable[i].sym_ident)) {
                 return &global_symtable[i];
         }

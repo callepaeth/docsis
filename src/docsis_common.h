@@ -31,9 +31,7 @@
 #define _DOCSIS_COMMON_H
 
 
-#ifndef NUM_IDENTIFIERS
-#define NUM_IDENTIFIERS 1427
-#endif /*  NUM_IDENTIFIERS, needed in docsis_symtable.h  */
+#define DIM(array) (sizeof(array)/sizeof(array[0]))
 
 #define MAXINT 2000000000
 #define TLV_VSIZE 1024

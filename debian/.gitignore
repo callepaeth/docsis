@@ -1,0 +1,6 @@
+.debhelper
+debhelper-build-stamp
+docsis.debhelper.log
+docsis.substvars
+docsis/
+files

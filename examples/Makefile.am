@@ -39,15 +39,15 @@ EXTRA_DIST = $(examples_DATA)
 	(cd ../src ; $(MAKE) docsis)
 .cfg.bin: ../src/docsis $(srcdir)/keyfile Makefile
 	export MIBDIRS="$(top_srcdir)/mibs:$(top_srcdir)/mibs/iana:$(top_srcdir)/mibs/ietf" ; \
-		../src/docsis -e $< $(srcdir)/keyfile $@ | \
+		../src/docsis -f ../src/docsis.def -e $< $(srcdir)/keyfile $@ | \
 		sed -n '/^Final content/,$$p' | grep -v "^Final content" > $@.1.txt ; \
-		../src/docsis -d $@ > $@.2.txt ; \
+		../src/docsis -f ../src/docsis.def -d $@ > $@.2.txt ; \
 		if cmp $@.1.txt $@.2.txt && cmp $(<:.cfg=.txt) $@.2.txt ; then \
 			rm -f $@.1.txt $@.2.txt ; \
 			true ; \
 		else \
 			diff -u $@.1.txt $@.2.txt ; \
-			rm -f $@ $@.1.txt $@.2.txt ; \
+			echo rm -f $@ $@.1.txt $@.2.txt ; \
 			false ; \
 		fi
 # First, the TESTS are built, then they're run.

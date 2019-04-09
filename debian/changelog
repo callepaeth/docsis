@@ -1,0 +1,5 @@
+docsis (0.9.8.1) unstable; urgency=medium
+
+  * Changed to use TLV definitions from /etc/docsis/docsis.def
+
+ -- Carsten Paeth <callepaeth@github.com>  Wed, 20 Mar 2019 14:27:50 +0100

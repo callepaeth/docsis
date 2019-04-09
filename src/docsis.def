@@ -1,0 +1,1803 @@
+# https://specification-search.cablelabs.com/CM-SP-MULPIv3.0
+# https://specification-search.cablelabs.com/CM-SP-MULPIv3.1
+# https://specification-search.cablelabs.com/ipv4-and-ipv6-erouter-specification
+
+# TLV 0 MULPIv3.0-C01 Annex C.1.2.2
+0                /*Pad*/                      special   
+0                GenericTLV                   special   
+# TLV 1 MULPIv3.0-C01 Annex C.1.1.1
+1                DownstreamFrequency          uint         88000000 1008000000
+# TLV 2 MULPIv3.0-C01 Annex C.1.1.2
+2                UpstreamChannelId            uchar               0        255
+# TLV 3 MULPIv3.0-C01 Annex C.1.1.3
+3                NetworkAccess                uchar               0          1
+
+# TLV 4 MULPIv3.0-C01 Annex C.1.1.4
+4                ClassOfService               aggregate 
+# TLV 4.1 MULPIv3.0-C01 Annex C.1.1.4.1
+4.1              ClassID                      uchar               1         16
+# TLV 4.2 MULPIv3.0-C01 Annex C.1.1.4.2
+4.2              MaxRateDown                  uint                0 1334880000
+# TLV 4.3 MULPIv3.0-C01 Annex C.1.1.4.3
+4.3              MaxRateUp                    uint                0  183900000
+# TLV 4.4 MULPIv3.0-C01 Annex C.1.1.4.4
+4.4              PriorityUp                   uchar               0          7
+# TLV 4.5 MULPIv3.0-C01 Annex C.1.1.4.5
+4.5              GuaranteedUp                 uint                0  183900000
+# TLV 4.6 MULPIv3.0-C01 Annex C.1.1.4.6
+4.6              MaxBurstUp                   ushort              0      65535
+# TLV 4.7 MULPIv3.0-C01 Annex C.1.1.4.7
+4.7              PrivacyEnable                uchar               0          1
+
+# TLV 5 MULPIv3.0-C01 Annex C.1.3.1 
+5                ModemCapabilities            aggregate 
+# TLV 5.1 MULPIv3.0-C01 Annex C.1.3.1.1
+5.1              ConcatenationSupport         uchar               0          1
+# TLV 5.2 MULPIv3.0-C01 Annex C.1.3.1.2
+5.2              ModemDocsisVersion           uchar               0          3
+# TLV 5.3 MULPIv3.0-C01 Annex C.1.3.1.3
+5.3              FragmentationSupport         uchar               0          1
+# TLV 5.4 MULPIv3.0-C01 Annex C.1.3.1.4
+5.4              PHSSupport                   uchar               0          1
+# TLV 5.5 MULPIv3.0-C01 Annex C.1.3.1.5
+5.5              IGMPSupport                  uchar               0          1
+# TLV 5.6 MULPIv3.0-C01 Annex C.1.3.1.6
+5.6              BaselinePrivacySupport       uchar               0          1
+# TLV 5.7 MULPIv3.0-C01 Annex C.1.3.1.7
+5.7              DownstreamSAIDSupport        uchar               0        255
+# TLV 5.8 MULPIv3.0-C01 Annex C.1.3.1.8
+5.8              UpstreamSIDSupport           uchar               0        255
+# TLV 5.9 MULPIv3.0-C01 Annex C.1.3.1.9
+5.9              OptionalFilteringSupport     uchar               0          0
+# TLV 5.10 MULPIv3.0-C01 Annex C.1.3.1.10
+5.10             TransmitPreEqualizerTapsPerModulationInterval uchar               1          4
+# TLV 5.11 MULPIv3.0-C01 Annex C.1.3.1.11
+5.11             NumberofTransmitEqualizerTaps uchar               8         64
+# TLV 5.12 MULPIv3.0-C01 Annex C.1.3.1.12
+5.12             DCCSupport                   uchar               0          1
+# TLV 5.13 MULPIv3.0-C01 Annex C.1.3.1.13
+5.13             IPFiltersSupport             ushort             64      65535
+# TLV 5.14 MULPIv3.0-C01 Annex C.1.3.1.14
+5.14             LLCFiltersSupport            ushort             10      65535
+# TLV 5.15 MULPIv3.0-C01 Annex C.1.3.1.15
+5.15             ExpandedUnicastSIDSpace      uchar               0          1
+# TLV 5.16 MULPIv3.0-C01 Annex C.1.3.1.16
+5.16             RangingHoldOffSupport        hexstr    
+# TLV 5.17 MULPIv3.0-C01 Annex C.1.3.1.17
+5.17             L2VPNCapability              uchar               0          1
+# TLV 5.18 MULPIv3.0-C01 Annex C.1.3.1.18
+5.18             L2VPNeSAFEHostCapability     hexstr    
+# TLV 5.19 MULPIv3.0-C01 Annex C.1.3.1.19
+5.19             DUTFilteringSupport          uchar               0          1
+# TLV 5.20 MULPIv3.0-C01 Annex C.1.3.1.20
+5.20             UpstreamFrequencyRangeSupport uchar               0          1
+# TLV 5.21 MULPIv3.0-C01 Annex C.1.3.1.21
+5.21             UpstreamSymbolRateSupport    uchar               0          0
+# TLV 5.22 MULPIv3.0-C01 Annex C.1.3.1.22
+5.22             SelectableActiveCodeMode2Support uchar               0          1
+# TLV 5.23 MULPIv3.0-C01 Annex C.1.3.1.23
+5.23             CodeHoppingMode2Support      uchar               0          1
+# TLV 5.24 MULPIv3.0-C01 Annex C.1.3.1.24
+5.24             MultipleTransmitChannelSupport uchar               0          0
+# TLV 5.25 MULPIv3.0-C01 Annex C.1.3.1.25
+5.25             M512MspsUpstreamTransmitChannel uchar               0          0
+# TLV 5.26 MULPIv3.0-C01 Annex C.1.3.1.26
+5.26             M256MspsUpstreamTransmitChannel uchar               0          0
+# TLV 5.27 MULPIv3.0-C01 Annex C.1.3.1.27
+5.27             TotalSIDClusterSupport       uchar               0          0
+# TLV 5.28 MULPIv3.0-C01 Annex C.1.3.1.28
+5.28             SIDClustersPerServiceFlow    uchar               2          8
+# TLV 5.29 MULPIv3.0-C01 Annex C.1.3.1.29
+5.29             MultipleReceiveChannelSupport uchar               0          0
+# TLV 5.30 MULPIv3.0-C01 Annex C.1.3.1.30
+5.30             TotalDownstreamServiceIDSupport uchar              32        255
+# TLV 5.31 MULPIv3.0-C01 Annex C.1.3.1.31
+5.31             ResequencingDownstreamServiceID uchar              16        255
+# TLV 5.32 MULPIv3.0-C01 Annex C.1.3.1.32
+5.32             MulticastDownstreamServiceID uchar              16        255
+# TLV 5.33 MULPIv3.0-C01 Annex C.1.3.1.33
+5.33             MulticastDSIDForwarding      uchar               0          2
+# TLV 5.34 MULPIv3.0-C01 Annex C.1.3.1.34
+5.34             FrameControlTypeForwarding   uchar               0          1
+# TLV 5.35 MULPIv3.0-C01 Annex C.1.3.1.35
+5.35             DPVCapability                uchar               0          0
+# TLV 5.36 MULPIv3.0-C01 Annex C.1.3.1.36
+5.36             UnsolicitedGrantServiceSupport uchar               0          0
+# TLV 5.37 MULPIv3.0-C01 Annex C.1.3.1.37
+5.37             MAPandUCDReceiptSupport      uchar               0          1
+# TLV 5.38 MULPIv3.0-C01 Annex C.1.3.1.38
+5.38             UpstreamDropClassifierSupport ushort             64      65535
+# TLV 5.39 MULPIv3.0-C01 Annex C.1.3.1.39
+5.39             IPv6Support                  uchar               0          1
+# TLV 5.40 MULPIv3.0-C01 Annex C.1.3.1.40
+5.40             ExtendedUpstreamTransmitPower uchar               0        244
+# TLV 5.41 MULPIv3.0-C01 Annex C.1.3.1.41
+5.41             MPLSClassificationSupport    hexstr    
+# TLV 5.42 MULPIv3.0-C01 Annex C.1.3.1.42
+5.42             DONUCapabilitiesEncoding     hexstr    
+# TLV 5.43 MULPIv3.0-C01 Annex C.1.3.1.43
+5.44             EnergyManagementCapabilities hexstr    
+# TLV 5.44 MULPIv3.0-C01 Annex C.1.3.1.44
+5.45             CDOCSISCapabilityEncoding    hexstr    
+# TLV 5.45 MULPIv3.0-C01 Annex C.1.3.1.45
+5.46             CMSTATUSACK                  uchar               0          1
+
+# TLV 6 MULPIv3.0-C01 Annex C.1.1.5
+6                CmMic                        md5       
+# TLV 7 MULPIv3.0-C01 Annex C.1.1.6
+7                CmtsMic                      md5       
+# TLV 8 MULPIv3.0-C01 Annex C.1.3.3
+8                VendorIDEncoding             hexstr              3          3
+
+# TODO
+9                SwUpgradeFilename            string              0          0
+# TLV 10 MULPIv3.0-C01 Annex C.1.2.4
+10               SnmpWriteControl             snmp_wd   
+# TLV 11 MULPIv3.0-C01 Annex C.1.2.5
+11               SnmpMibObject                snmp_object
+# TLV 12 MULPIv3.0-C01 Annex C.1.3.3
+12               ModemIPAddress               ip        
+# TLV 13 MULPIv3.0-C01 Annex C.1.3.4
+13               ServiceNotAvailableResponse hexstr               3          3
+# TLV 14 MULPIv3.0-C01 Annex C.1.2.6
+14               CpeMacAddress                ether     
+
+# TLV 17 MULPIv3.0-C01 Annex C.3.1
+17               BaselinePrivacy              aggregate 
+17.1             AuthTimeout                  uint                1         30
+17.2             ReAuthTimeout                uint                1         30
+17.3             AuthGraceTime                uint                1    6047999
+17.4             OperTimeout                  uint                1         10
+17.5             ReKeyTimeout                 uint                1         10
+17.6             TEKGraceTime                 uint                1     302399
+17.7             AuthRejectTimeout            uint                1        600
+17.8             SAMapWaitTimeout             uint                1         10
+17.9             SAMapMaxRetries              uint                0         10
+
+# TLV 18 MULPIv3.0-C01 Annex C.1.1.7
+18               MaxCPE                       uchar               1        254
+# TLV 19 MULPIv3.0-C01 Annex C.1.1.8
+19               TftpTimestamp                uint                0 4294967295
+
+# TLV 14 MULPIv3.0-C01 Annex C.1.2.6
+14               CpeMacAddress                ether     
+
+# TLV 17 MULPIv3.0-C01 Annex C.3.1
+17               BaselinePrivacy              aggregate 
+17.1             AuthTimeout                  uint                1         30
+17.2             ReAuthTimeout                uint                1         30
+17.3             AuthGraceTime                uint                1    6047999
+17.4             OperTimeout                  uint                1         10
+17.5             ReKeyTimeout                 uint                1         10
+17.6             TEKGraceTime                 uint                1     302399
+17.7             AuthRejectTimeout            uint                1        600
+17.8             SAMapWaitTimeout             uint                1         10
+17.9             SAMapMaxRetries              uint                0         10
+
+# TLV 18 MULPIv3.0-C01 Annex C.1.1.7
+18               MaxCPE                       uchar               1        254
+# TLV 19 MULPIv3.0-C01 Annex C.1.1.8
+19               TftpTimestamp                uint                0 4294967295
+# TLV 20 MULPIv3.0-C01 Annex C.1.1.9
+20               TftpModemAddress             ip        
+# TLV 21 MULPIv3.0-C01 Annex C.1.2.7
+21               SwUpgradeServer              ip        
+# TLV 22 MULPIv3.0-C01 Annex C.1.1.11 / C.2.1.1
+22               UsPacketClass                aggregate 
+22.1             ClassifierRef                uchar               1        255
+22.2             ClassifierId                 ushort              1      65535
+22.3             ServiceFlowRef               ushort              1      65535
+22.4             ServiceFlowId                uint                1 4294967295
+22.5             RulePriority                 uchar               0        255
+22.6             ActivationState              uchar               0          1
+22.7             DscAction                    uchar               0          2
+22.9             IpPacketClassifier           aggregate 
+22.9.1           IpTos                        hexstr    
+22.9.2           IpProto                      ushort              0        257
+22.9.3           IpSrcAddr                    ip        
+22.9.4           IpSrcMask                    ip        
+22.9.5           IpDstAddr                    ip        
+22.9.6           IpDstMask                    ip        
+22.9.7           SrcPortStart                 ushort              0      65535
+22.9.8           SrcPortEnd                   ushort              0      65535
+22.9.9           DstPortStart                 ushort              0      65535
+22.9.10          DstPortEnd                   ushort              0      65535
+22.10            LLCPacketClassifier          aggregate 
+22.10.1          DstMacAddress                ethermask 
+22.10.2          SrcMacAddress                ether     
+22.10.3          EtherType                    hexstr    
+22.11            IEEE802Classifier            aggregate 
+22.11.1          UserPriority                 char_list 
+22.11.2          VlanID                       ushort              0       4096
+22.12            PcIPv6PacketClassification   aggregate 
+22.12.1          PcIPv6TrafficClassRangeAndMask hexstr    
+22.12.2          PcIPv6FlowLabel              hexstr    
+22.12.3          PcIPv6NextHeaderType         ushort              0        257
+22.12.4          PcIPv6SourceAddress          ip6       
+22.12.5          PcIPv6SourcePrefixLength     uchar               0        128
+22.12.6          PcIPv6DestAddress            ip6       
+22.12.7          PcIPv6DestPrefixLength       uchar               0        128
+22.13            PcCMIMEncoding               hexstr    
+22.14            STagCTagFrameClassification  aggregate 
+22.14.1          STPID                        hexstr    
+22.14.2          SVID                         hexstr    
+22.14.3          SPCP                         hexstr    
+22.14.4          SDEI                         hexstr    
+22.14.5          CTPID                        hexstr    
+22.14.6          CVID                         hexstr    
+22.14.7          CPCP                         hexstr    
+22.14.8          CCFI                         hexstr    
+22.14.9          STCI                         hexstr    
+22.14.10         CTCI                         hexstr    
+22.15            IEEE8021ahPacketClassification aggregate 
+22.15.1          ITPID                        hexstr    
+22.15.2          ISID                         hexstr    
+22.15.3          ITCI                         hexstr    
+22.15.4          IPCP                         hexstr    
+22.15.5          IDEI                         hexstr    
+22.15.6          IUCA                         hexstr    
+22.15.7          BTPID                        hexstr    
+22.15.8          BTCI                         hexstr    
+22.15.9          BPCP                         hexstr    
+22.15.10         BDEI                         hexstr    
+22.15.11         BVID                         hexstr    
+22.15.12         BDA                          ether     
+22.15.13         BSA                          ether     
+22.16            ICMPv4ICMPv6PacketClassification aggregate 
+22.16.1          ICMPv4ICMPv6TypeStart        uchar               0        255
+22.16.2          ICMPv4ICMPv6TypeEnd          uchar               0        255
+22.17            MPLSClassificationEncoding   aggregate 
+22.17.1          MPLSTCbits                   hexstr    
+22.17.2          MPLSLabel                    hexstr    
+22.43            VendorSpecific               aggregate 
+22.43.1          CMLoadBalancingPolicyID      uint                0          0
+22.43.2          CMLoadBalancingPriority      uint                0          0
+22.43.3          CMLoadBalancingGroupID       uint                0          0
+22.43.4          CMRangingClassIDExtension    ushort              0          0
+22.43.5          L2VPNEncoding                aggregate 
+22.43.5.1        VPNIdentifier                hexstr    
+22.43.5.2        NSIEncapsulation             aggregate 
+22.43.5.2.1      ServiceMultiplexingValueOther lenzero   
+22.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
+22.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+22.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
+22.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+22.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
+22.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
+22.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+22.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
+22.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+22.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
+22.43.5.2.6.1    ITCIEncapsulation            hexstr    
+22.43.5.2.6.2    BDAEncapsulation             hexstr    
+22.43.5.2.6.3    BTCIEncapsulation            hexstr    
+22.43.5.2.6.4    ITPIDEncapsulation           hexstr    
+22.43.5.2.6.5    IPCPEncapsulation            hexstr    
+22.43.5.2.6.6    IDEIEncapsulation            hexstr    
+22.43.5.2.6.7    IUCAEncapsulation            hexstr    
+22.43.5.2.6.8    ISIDEncapsulation            hexstr    
+22.43.5.2.6.9    BTPIDEncapsulation           hexstr    
+22.43.5.2.6.10   BPCPEncapsulation            hexstr    
+22.43.5.2.6.11   BDEIEncapsulation            hexstr    
+22.43.5.2.6.12   BVIDEncapsulation            hexstr    
+22.43.5.2.8      ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+22.43.5.3        eSAFEDHCPSnooping            hexstr    
+22.43.5.4        CMInterfaceMaskCMIMSubtype   hexstr    
+22.43.5.5        AttachmentGroupID            hexstr    
+22.43.5.6        SourceAttachmentIndividualID hexstr    
+22.43.5.7        TargetAttachmentIndividualID hexstr    
+22.43.5.8        IngressUserPriority          uchar               0          7
+22.43.5.9        UserPriorityRange            char_list 
+22.43.5.10       L2VPNSADescriptorSubtype     hexstr    
+22.43.5.12       PseudowireType               uchar               4          5
+22.43.5.13       L2VPNMode                    uchar               0          1
+22.43.5.14       TPIDTranslation              aggregate 
+22.43.5.14.1     UpstreamTPIDTranslation      hexstr    
+22.43.5.14.2     DownstreamTPIDTranslation    hexstr    
+22.43.5.14.3     UpstreamSTPIDTranslation     hexstr    
+22.43.5.14.4     DownstreamSTPIDTranslation   hexstr    
+22.43.5.14.5     UpstreamBTPIDTranslation     hexstr    
+22.43.5.14.6     DownstreamBTPIDTranslation   hexstr    
+22.43.5.14.7     UpstreamITPIDTranslation     hexstr    
+22.43.5.14.8     DownstreamITPIDTranslation   hexstr    
+22.43.5.15       L2CPProcessing               aggregate 
+22.43.5.15.1     L2CPTunnelMode               uchar               0          1
+22.43.5.15.2     L2CPDMACAddress              ether     
+22.43.5.15.3     L2CPOverwrotingDMACAddress   ether     
+22.43.5.16       DACDisableEnableConfiguration uchar               0          1
+22.43.5.18       PseudowireClass              hexstr    
+22.43.5.19       ServiceDelimiter             aggregate 
+22.43.5.19.1     CVIDDelimiter                hexstr    
+22.43.5.19.2     SVIDDelimiter                hexstr    
+22.43.5.19.3     ISIDDelimiter                hexstr    
+22.43.5.19.4     BVIDDelimiter                hexstr    
+22.43.5.20       VirtualSwitchInstanceEncoding aggregate 
+22.43.5.20.1     VPLSClass                    hexstr    
+22.43.5.20.2     ETreeRole                    uchar               0          1
+22.43.5.20.3     ETreeRootVID                 hexstr    
+22.43.5.20.4     ETreeLeafVID                 hexstr    
+22.43.5.21       BGPAttribute                 aggregate 
+22.43.5.21.1     BGPVPNID                     uint                0          0
+22.43.5.21.2     RouteDistinguisher           hexstr    
+22.43.5.21.3     RouteTargetImport            hexstr    
+22.43.5.21.4     RouteTargetExport            hexstr    
+22.43.5.21.5     CEIDVEID                     ushort              0          0
+22.43.5.23       PseudowireSignaling          uchar               0          2
+22.43.5.24       SOAMSubtype                  aggregate 
+22.43.5.24.1     MEPConfiguration             aggregate 
+22.43.5.24.1.1   MDLevel                      uchar               0          7
+22.43.5.24.1.2   MDName                       string              2         16
+22.43.5.24.1.3   MAName                       string              2         28
+22.43.5.24.1.4   MEPID                        ushort              1       8191
+22.43.5.24.2     RemoteMEPConfiguration       aggregate 
+22.43.5.24.2.1   RemoteMDLevel                uchar               0          7
+22.43.5.24.2.2   RemoteMDName                 string              2         16
+22.43.5.24.2.3   RemoteMAName                 string              2         28
+22.43.5.24.2.4   RemoteMEPID                  ushort              1       8191
+22.43.5.24.3     FaultManagementConfiguration aggregate 
+22.43.5.24.3.1   ContinuityCheckMessages      uchar               0          2
+22.43.5.24.3.2   LoopbackFunction             uchar               0          1
+22.43.5.24.3.3   LinktraceFunction            uchar               0          1
+22.43.5.24.4     PerformanceManagementConfiguration aggregate 
+22.43.5.24.4.1   FrameDelayMeasurement        aggregate 
+22.43.5.24.4.1.1 FrameDelayMeasurementEnable  uchar               0          1
+22.43.5.24.4.1.2 FrameDelayMeasurementOneWayTwoWay uchar               0          1
+22.43.5.24.4.1.3 FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+22.43.5.24.4.2   FrameLossMeasurement         aggregate 
+22.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
+22.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+22.43.5.26       L2VPNDSID                    uint24    
+22.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+22.43.5.43.8     VendorIdentifier             hexstr    
+22.43.5.43.36    MPLSType                     uchar               1        255
+22.43.5.43.38    MPLSVCID                     uint                1 4294967295
+22.43.5.43.39    MPLSPeername                 string
+22.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
+22.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
+22.43.6.2        ExtendedCMTSMICBitmap        hexstr    
+22.43.6.3        ExplicitExtendedCMTSMICDigest hexstr    
+22.43.7          SAVAuthorizationEncoding     aggregate 
+22.43.7.1        SAVGroupName                 string              1         15
+22.43.7.2        SAVStaticPrefixRule          aggregate 
+22.43.7.2.1      SAVStaticPrefixAddress       ip_ip6    
+22.43.7.2.2      SAVStaticPrefixLength        uchar               0          0
+22.43.8          VendorIdentifier             hexstr    
+22.43.9          CMAttributeMasks             aggregate 
+22.43.9.1        CMDownstreamRequiredAttributeMask hexstr    
+22.43.9.2        CMDownstreamForbiddenAttributeMask hexstr    
+22.43.9.3        CMUpstreamRequiredAttributeMask hexstr    
+22.43.9.4        CMUpstreamForbiddenAttributeMask hexstr    
+22.43.10         IPMulticastJoinAuthorization aggregate 
+22.43.10.1       IPMulticastProfileName       string              1         15
+22.43.10.2       IPMulticastJoinAuthStaticSessionRule aggregate 
+22.43.10.2.1     MulticastRulePriority        uchar               0        255
+22.43.10.2.2     AuthorizationAction          uchar               0          1
+22.43.10.2.3     SourcePrefixAddress          ip_ip6    
+22.43.10.2.4     SourcePrefixLength           uchar               0        128
+22.43.10.2.5     GroupPrefixAddress           ip_ip6    
+22.43.10.2.6     GroupPrefixLength            uchar               0        128
+22.43.10.3       MaximumMulticastSessions     ushort              0          0
+22.43.11         ServiceTypeIdentifier        string              1         16
+22.43.12         DEMARCAutoConfiguration      aggregate 
+22.43.12.1       DACDisableEnableConfig       uchar               0          1
+22.43.12.2       CMIMEncoding                 hexstr    
+22.43.12.3       UpstreamServiceClassName     strzero             2         16
+22.43.12.4       DownstreamServiceClassName   strzero             2         16
+
+# TLV 23 MULPIv3.0-C01 Annex C.1.1.12 / C.2.1.3
+23               DsPacketClass                aggregate 
+23.1             ClassifierRef                uchar               1        255
+23.2             ClassifierId                 ushort              1      65535
+23.3             ServiceFlowRef               ushort              1      65535
+23.4             ServiceFlowId                uint                1 4294967295
+23.5             RulePriority                 uchar               0        255
+23.6             ActivationState              uchar               0          1
+23.7             DscAction                    uchar               0          2
+23.9             IpPacketClassifier           aggregate 
+23.9.1           IpTos                        hexstr    
+23.9.2           IpProto                      ushort              0        257
+23.9.3           IpSrcAddr                    ip        
+23.9.4           IpSrcMask                    ip        
+23.9.5           IpDstAddr                    ip        
+23.9.6           IpDstMask                    ip        
+23.9.7           SrcPortStart                 ushort              0      65535
+23.9.8           SrcPortEnd                   ushort              0      65535
+23.9.9           DstPortStart                 ushort              0      65535
+23.9.10          DstPortEnd                   ushort              0      65535
+23.10            LLCPacketClassifier          aggregate 
+23.10.1          DstMacAddress                ethermask 
+23.10.2          SrcMacAddress                ether     
+23.10.3          EtherType                    hexstr    
+23.11            IEEE802Classifier            aggregate 
+23.11.1          UserPriority                 char_list 
+23.11.2          VlanID                       ushort              0          0
+23.12            PcIPv6PacketClassification   aggregate 
+23.12.1          PcIPv6TrafficClassRangeAndMask hexstr    
+23.12.2          PcIPv6FlowLabel              hexstr    
+23.12.3          PcIPv6NextHeaderType         ushort              0        257
+23.12.4          PcIPv6SourceAddress          ip6       
+23.12.5          PcIPv6SourcePrefixLength     uchar               0        128
+23.12.6          PcIPv6DestAddress            ip6       
+23.12.7          PcIPv6DestPrefixLength       uchar               0        128
+23.13            PcCMIMEncoding               hexstr    
+23.14            STagCTagFrameClassification  aggregate 
+23.14.1          STPID                        hexstr    
+23.14.2          SVID                         hexstr    
+23.14.3          SPCP                         hexstr    
+23.14.4          SDEI                         hexstr    
+23.14.5          CTPID                        hexstr    
+23.14.6          CVID                         hexstr    
+23.14.7          CPCP                         hexstr    
+23.14.8          CCFI                         hexstr    
+23.14.9          STCI                         hexstr    
+23.14.10         CTCI                         hexstr    
+23.15            IEEE8021ahPacketClassification aggregate 
+23.15.1          ITPID                        hexstr    
+23.15.2          ISID                         hexstr    
+23.15.3          ITCI                         hexstr    
+23.15.4          IPCP                         hexstr    
+23.15.5          IDEI                         hexstr    
+23.15.6          IUCA                         hexstr    
+23.15.7          BTPID                        hexstr    
+23.15.8          BTCI                         hexstr    
+23.15.9          BPCP                         hexstr    
+23.15.10         BDEI                         hexstr    
+23.15.11         BVID                         hexstr    
+23.15.12         BDA                          ether     
+23.15.13         BSA                          ether     
+23.16            ICMPv4ICMPv6PacketClassification aggregate 
+23.16.1          ICMPv4ICMPv6TypeStart        uchar               0        255
+23.16.2          ICMPv4ICMPv6TypeEnd          uchar               0        255
+23.17            MPLSClassificationEncoding   aggregate 
+23.17.1          MPLSTCbits                   hexstr    
+23.17.2          MPLSLabel                    hexstr    
+23.43            VendorSpecific               aggregate 
+23.43.1          CMLoadBalancingPolicyID      uint                0          0
+23.43.2          CMLoadBalancingPriority      uint                0          0
+23.43.3          CMLoadBalancingGroupID       uint                0          0
+23.43.4          CMRangingClassIDExtension    ushort              0          0
+23.43.5          L2VPNEncoding                aggregate 
+23.43.5.1        VPNIdentifier                hexstr    
+23.43.5.2        NSIEncapsulation             aggregate 
+23.43.5.2.1      ServiceMultiplexingValueOther lenzero   
+23.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
+23.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+23.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
+23.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+23.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
+23.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
+23.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+23.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
+23.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+23.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
+23.43.5.2.6.1    ITCIEncapsulation            hexstr    
+23.43.5.2.6.2    BDAEncapsulation             hexstr    
+23.43.5.2.6.3    BTCIEncapsulation            hexstr    
+23.43.5.2.6.4    ITPIDEncapsulation           hexstr    
+23.43.5.2.6.5    IPCPEncapsulation            hexstr    
+23.43.5.2.6.6    IDEIEncapsulation            hexstr    
+23.43.5.2.6.7    IUCAEncapsulation            hexstr    
+23.43.5.2.6.8    ISIDEncapsulation            hexstr    
+23.43.5.2.6.9    BTPIDEncapsulation           hexstr    
+23.43.5.2.6.10   BPCPEncapsulation            hexstr    
+23.43.5.2.6.11   BDEIEncapsulation            hexstr    
+23.43.5.2.6.12   BVIDEncapsulation            hexstr    
+23.43.5.2.8      ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+23.43.5.3        eSAFEDHCPSnooping            hexstr    
+23.43.5.4        CMInterfaceMaskCMIMSubtype   hexstr    
+23.43.5.5        AttachmentGroupID            hexstr    
+23.43.5.6        SourceAttachmentIndividualID hexstr    
+23.43.5.7        TargetAttachmentIndividualID hexstr    
+23.43.5.8        IngressUserPriority          uchar               0          7
+23.43.5.9        UserPriorityRange            char_list 
+23.43.5.10       L2VPNSADescriptorSubtype     hexstr    
+23.43.5.12       PseudowireType               uchar               4          5
+23.43.5.13       L2VPNMode                    uchar               0          1
+23.43.5.14       TPIDTranslation              aggregate 
+23.43.5.14.1     UpstreamTPIDTranslation      hexstr    
+23.43.5.14.2     DownstreamTPIDTranslation    hexstr    
+23.43.5.14.3     UpstreamSTPIDTranslation     hexstr    
+23.43.5.14.4     DownstreamSTPIDTranslation   hexstr    
+23.43.5.14.5     UpstreamBTPIDTranslation     hexstr    
+23.43.5.14.6     DownstreamBTPIDTranslation   hexstr    
+23.43.5.14.7     UpstreamITPIDTranslation     hexstr    
+23.43.5.14.8     DownstreamITPIDTranslation   hexstr    
+23.43.5.15       L2CPProcessing               aggregate 
+23.43.5.15.1     L2CPTunnelMode               uchar               0          1
+23.43.5.15.2     L2CPDMACAddress              ether     
+23.43.5.15.3     L2CPOverwrotingDMACAddress   ether     
+23.43.5.16       DACDisableEnableConfiguration uchar               0          1
+23.43.5.18       PseudowireClass              hexstr    
+23.43.5.19       ServiceDelimiter             aggregate 
+23.43.5.19.1     CVIDDelimiter                hexstr    
+23.43.5.19.2     SVIDDelimiter                hexstr    
+23.43.5.19.3     ISIDDelimiter                hexstr    
+23.43.5.19.4     BVIDDelimiter                hexstr    
+23.43.5.20       VirtualSwitchInstanceEncoding aggregate 
+23.43.5.20.1     VPLSClass                    hexstr    
+23.43.5.20.2     ETreeRole                    uchar               0          1
+23.43.5.20.3     ETreeRootVID                 hexstr    
+23.43.5.20.4     ETreeLeafVID                 hexstr    
+23.43.5.21       BGPAttribute                 aggregate 
+23.43.5.21.1     BGPVPNID                     uint                0          0
+23.43.5.21.2     RouteDistinguisher           hexstr    
+23.43.5.21.3     RouteTargetImport            hexstr    
+23.43.5.21.4     RouteTargetExport            hexstr    
+23.43.5.21.5     CEIDVEID                     ushort              0          0
+23.43.5.23       PseudowireSignaling          uchar               0          2
+23.43.5.24       SOAMSubtype                  aggregate 
+23.43.5.24.1     MEPConfiguration             aggregate 
+23.43.5.24.1.1   MDLevel                      uchar               0          7
+23.43.5.24.1.2   MDName                       string              2         16
+23.43.5.24.1.3   MAName                       string              2         28
+23.43.5.24.1.4   MEPID                        ushort              1       8191
+23.43.5.24.2     RemoteMEPConfiguration       aggregate 
+23.43.5.24.2.1   RemoteMDLevel                uchar               0          7
+23.43.5.24.2.2   RemoteMDName                 string              2         16
+23.43.5.24.2.3   RemoteMAName                 string              2         28
+23.43.5.24.2.4   RemoteMEPID                  ushort              1       8191
+23.43.5.24.3     FaultManagementConfiguration aggregate 
+23.43.5.24.3.1   ContinuityCheckMessages      uchar               0          2
+23.43.5.24.3.2   LoopbackFunction             uchar               0          1
+23.43.5.24.3.3   LinktraceFunction            uchar               0          1
+23.43.5.24.4     PerformanceManagementConfiguration aggregate 
+23.43.5.24.4.1   FrameDelayMeasurement        aggregate 
+23.43.5.24.4.1.1 FrameDelayMeasurementEnable  uchar               0          1
+23.43.5.24.4.1.2 FrameDelayMeasurementOneWayTwoWay uchar               0          1
+23.43.5.24.4.1.3 FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+23.43.5.24.4.2   FrameLossMeasurement         aggregate 
+23.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
+23.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+23.43.5.26       L2VPNDSID                    uint24    
+23.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+23.43.5.43.8     VendorIdentifier             hexstr    
+23.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
+23.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
+23.43.6.2        ExtendedCMTSMICBitmap        hexstr    
+23.43.6.3        ExplicitExtendedCMTSMICDigest hexstr    
+23.43.7          SAVAuthorizationEncoding     aggregate 
+23.43.7.1        SAVGroupName                 string              1         15
+23.43.7.2        SAVStaticPrefixRule          aggregate 
+23.43.7.2.1      SAVStaticPrefixAddress       ip_ip6    
+23.43.7.2.2      SAVStaticPrefixLength        uchar               0          0
+23.43.8          VendorIdentifier             hexstr    
+23.43.9          CMAttributeMasks             aggregate 
+23.43.9.1        CMDownstreamRequiredAttributeMask hexstr    
+23.43.9.2        CMDownstreamForbiddenAttributeMask hexstr    
+23.43.9.3        CMUpstreamRequiredAttributeMask hexstr    
+23.43.9.4        CMUpstreamForbiddenAttributeMask hexstr    
+23.43.10         IPMulticastJoinAuthorization aggregate 
+23.43.10.1       IPMulticastProfileName       string              1         15
+23.43.10.2       IPMulticastJoinAuthStaticSessionRule aggregate 
+23.43.10.2.1     MulticastRulePriority        uchar               0        255
+23.43.10.2.2     AuthorizationAction          uchar               0          1
+23.43.10.2.3     SourcePrefixAddress          ip_ip6    
+23.43.10.2.4     SourcePrefixLength           uchar               0        128
+23.43.10.2.5     GroupPrefixAddress           ip_ip6    
+23.43.10.2.6     GroupPrefixLength            uchar               0        128
+23.43.10.3       MaximumMulticastSessions     ushort              0          0
+23.43.11         ServiceTypeIdentifier        string              1         16
+23.43.12         DEMARCAutoConfiguration      aggregate 
+23.43.12.1       DACDisableEnableConfig       uchar               0          1
+23.43.12.2       CMIMEncoding                 hexstr    
+23.43.12.3       UpstreamServiceClassName     strzero             2         16
+23.43.12.4       DownstreamServiceClassName   strzero             2         16
+
+# TLV 24 MULPIv3.0-C01 Annex C.1.1.13 / C.2.2.1
+24               UsServiceFlow                aggregate 
+24.1             UsServiceFlowRef             ushort              1      65535
+24.2             UsServiceFlowId              uint                1 4294967295
+24.3             ServiceIdentifier            ushort              0          0
+24.4             ServiceClassName             strzero             2         16
+24.6             QosParamSetType              uchar               0        255
+24.7             TrafficPriority              uchar               0          7
+24.8             MaxRateSustained             uint                0          0
+24.9             MaxTrafficBurst              uint                0          0
+24.10            MinReservedRate              uint                0          0
+24.11            MinResPacketSize             ushort              0      65535
+24.12            ActQosParamsTimeout          ushort              0      65535
+24.13            AdmQosParamsTimeout          ushort              0      65535
+24.14            MaxConcatenatedBurst         ushort              0      65535
+24.15            SchedulingType               uchar               0          6
+24.16            RequestOrTxPolicy            hexstr    
+24.17            NominalPollInterval          uint                0          0
+24.18            ToleratedPollJitter          uint                0          0
+24.19            UnsolicitedGrantSize         ushort              0      65535
+24.20            NominalGrantInterval         uint                0          0
+24.21            ToleratedGrantJitter         uint                0          0
+24.22            GrantsPerInterval            uchar               0        127
+24.23            IpTosOverwrite               hexstr    
+24.26            MultipliertoNumberofBytesRequested uchar               1         16
+24.27            UpstreamPeakTrafficRate      uint                0          0
+24.31            ServiceFlowRequiredAttributeMask hexstr    
+24.32            ServiceFlowForbiddenAttributeMask hexstr    
+24.33            ServiceFlowAttributeAggregationRuleMask hexstr    
+24.34            ApplicationIdentifier        uint                0          0
+24.35            BufferControl                aggregate 
+24.35.1          MinimumBuffer                uint                0 4294967295
+24.35.2          TargetBuffer                 uint                0 4294967295
+24.35.3          MaximumBuffer                uint                0 4294967295
+24.36            UpstreamAggregateServiceFlowReference aggregate 
+24.37            UpstreamMESPReference        ushort              1      65535
+24.40            AQMEncodings                 aggregate 
+24.40.1          SFAQMDisable                 uchar               0          1
+24.40.2          SFAQMLatencyTarget           uchar               0          1
+24.41            DataRateUnitSetting          uchar               0          3
+24.43            VendorSpecific               aggregate 
+24.43.1          CMLoadBalancingPolicyID      uint                0          0
+24.43.2          CMLoadBalancingPriority      uint                0          0
+24.43.3          CMLoadBalancingGroupID       uint                0          0
+24.43.4          CMRangingClassIDExtension    ushort              0          0
+24.43.5          L2VPNEncoding                aggregate 
+24.43.5.1        VPNIdentifier                hexstr    
+24.43.5.2        NSIEncapsulation             aggregate 
+24.43.5.2.1      ServiceMultiplexingValueOther lenzero   
+24.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
+24.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+24.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
+24.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+24.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
+24.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
+24.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+24.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
+24.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+24.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
+24.43.5.2.6.1    ITCIEncapsulation            hexstr    
+24.43.5.2.6.2    BDAEncapsulation             hexstr    
+24.43.5.2.6.3    BTCIEncapsulation            hexstr    
+24.43.5.2.6.4    ITPIDEncapsulation           hexstr    
+24.43.5.2.6.5    IPCPEncapsulation            hexstr    
+24.43.5.2.6.6    IDEIEncapsulation            hexstr    
+24.43.5.2.6.7    IUCAEncapsulation            hexstr    
+24.43.5.2.6.8    ISIDEncapsulation            hexstr    
+24.43.5.2.6.9    BTPIDEncapsulation           hexstr    
+24.43.5.2.6.10   BPCPEncapsulation            hexstr    
+24.43.5.2.6.11   BDEIEncapsulation            hexstr    
+24.43.5.2.6.12   BVIDEncapsulation            hexstr    
+24.43.5.2.8      ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+24.43.5.3        eSAFEDHCPSnooping            hexstr    
+24.43.5.4        CMInterfaceMaskCMIMSubtype   hexstr    
+24.43.5.5        AttachmentGroupID            hexstr    
+24.43.5.6        SourceAttachmentIndividualID hexstr    
+24.43.5.7        TargetAttachmentIndividualID hexstr    
+24.43.5.8        IngressUserPriority          uchar               0          7
+24.43.5.9        UserPriorityRange            char_list 
+24.43.5.10       L2VPNSADescriptorSubtype     hexstr    
+24.43.5.12       PseudowireType               uchar               4          5
+24.43.5.13       L2VPNMode                    uchar               0          1
+24.43.5.14       TPIDTranslation              aggregate 
+24.43.5.14.1     UpstreamTPIDTranslation      hexstr    
+24.43.5.14.2     DownstreamTPIDTranslation    hexstr    
+24.43.5.14.3     UpstreamSTPIDTranslation     hexstr    
+24.43.5.14.4     DownstreamSTPIDTranslation   hexstr    
+24.43.5.14.5     UpstreamBTPIDTranslation     hexstr    
+24.43.5.14.6     DownstreamBTPIDTranslation   hexstr    
+24.43.5.14.7     UpstreamITPIDTranslation     hexstr    
+24.43.5.14.8     DownstreamITPIDTranslation   hexstr    
+24.43.5.15       L2CPProcessing               aggregate 
+24.43.5.15.1     L2CPTunnelMode               uchar               0          1
+24.43.5.15.2     L2CPDMACAddress              ether     
+24.43.5.15.3     L2CPOverwrotingDMACAddress   ether     
+24.43.5.16       DACDisableEnableConfiguration uchar               0          1
+24.43.5.18       PseudowireClass              hexstr    
+24.43.5.19       ServiceDelimiter             aggregate 
+24.43.5.19.1     CVIDDelimiter                hexstr    
+24.43.5.19.2     SVIDDelimiter                hexstr    
+24.43.5.19.3     ISIDDelimiter                hexstr    
+24.43.5.19.4     BVIDDelimiter                hexstr    
+24.43.5.20       VirtualSwitchInstanceEncoding aggregate 
+24.43.5.20.1     VPLSClass                    hexstr    
+24.43.5.20.2     ETreeRole                    uchar               0          1
+24.43.5.20.3     ETreeRootVID                 hexstr    
+24.43.5.20.4     ETreeLeafVID                 hexstr    
+24.43.5.21       BGPAttribute                 aggregate 
+24.43.5.21.1     BGPVPNID                     uint                0          0
+24.43.5.21.2     RouteDistinguisher           hexstr    
+24.43.5.21.3     RouteTargetImport            hexstr    
+24.43.5.21.4     RouteTargetExport            hexstr    
+24.43.5.21.5     CEIDVEID                     ushort              0          0
+24.43.5.23       PseudowireSignaling          uchar               0          2
+24.43.5.24       SOAMSubtype                  aggregate 
+24.43.5.24.1     MEPConfiguration             aggregate 
+24.43.5.24.1.1   MDLevel                      uchar               0          7
+24.43.5.24.1.2   MDName                       string              2         16
+24.43.5.24.1.3   MAName                       string              2         28
+24.43.5.24.1.4   MEPID                        ushort              1       8191
+24.43.5.24.2     RemoteMEPConfiguration       aggregate 
+24.43.5.24.2.1   RemoteMDLevel                uchar               0          7
+24.43.5.24.2.2   RemoteMDName                 string              2         16
+24.43.5.24.2.3   RemoteMAName                 string              2         28
+24.43.5.24.2.4   RemoteMEPID                  ushort              1       8191
+24.43.5.24.3     FaultManagementConfiguration aggregate 
+24.43.5.24.3.1   ContinuityCheckMessages      uchar               0          2
+24.43.5.24.3.2   LoopbackFunction             uchar               0          1
+24.43.5.24.3.3   LinktraceFunction            uchar               0          1
+24.43.5.24.4     PerformanceManagementConfiguration aggregate 
+24.43.5.24.4.1   FrameDelayMeasurement        aggregate 
+24.43.5.24.4.1.1 FrameDelayMeasurementEnable  uchar               0          1
+24.43.5.24.4.1.2 FrameDelayMeasurementOneWayTwoWay uchar               0          1
+24.43.5.24.4.1.3 FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+24.43.5.24.4.2   FrameLossMeasurement         aggregate 
+24.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
+24.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+24.43.5.26       L2VPNDSID                    uint24    
+24.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+24.43.5.43.8     VendorIdentifier             hexstr    
+24.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
+24.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
+24.43.6.2        ExtendedCMTSMICBitmap        hexstr    
+24.43.6.3        ExplicitExtendedCMTSMICDigest hexstr    
+24.43.7          SAVAuthorizationEncoding     aggregate 
+24.43.7.1        SAVGroupName                 string              1         15
+24.43.7.2        SAVStaticPrefixRule          aggregate 
+24.43.7.2.1      SAVStaticPrefixAddress       ip_ip6    
+24.43.7.2.2      SAVStaticPrefixLength        uchar               0          0
+24.43.8          VendorIdentifier             hexstr    
+24.43.9          CMAttributeMasks             aggregate 
+24.43.9.1        CMDownstreamRequiredAttributeMask hexstr    
+24.43.9.2        CMDownstreamForbiddenAttributeMask hexstr    
+24.43.9.3        CMUpstreamRequiredAttributeMask hexstr    
+24.43.9.4        CMUpstreamForbiddenAttributeMask hexstr    
+24.43.10         IPMulticastJoinAuthorization aggregate 
+24.43.10.1       IPMulticastProfileName       string              1         15
+24.43.10.2       IPMulticastJoinAuthStaticSessionRule aggregate 
+24.43.10.2.1     MulticastRulePriority        uchar               0        255
+24.43.10.2.2     AuthorizationAction          uchar               0          1
+24.43.10.2.3     SourcePrefixAddress          ip_ip6    
+24.43.10.2.4     SourcePrefixLength           uchar               0        128
+24.43.10.2.5     GroupPrefixAddress           ip_ip6    
+24.43.10.2.6     GroupPrefixLength            uchar               0        128
+24.43.10.3       MaximumMulticastSessions     ushort              0          0
+24.43.11         ServiceTypeIdentifier        string              1         16
+24.43.12         DEMARCAutoConfiguration      aggregate 
+24.43.12.1       DACDisableEnableConfig       uchar               0          1
+24.43.12.2       CMIMEncoding                 hexstr    
+24.43.12.3       UpstreamServiceClassName     strzero             2         16
+24.43.12.4       DownstreamServiceClassName   strzero             2         16
+
+# TLV 25 MULPIv3.0-C01 Annex C.1.1.14 / C.2.2.2
+25               DsServiceFlow                aggregate 
+25.1             DsServiceFlowRef             ushort              1      65535
+25.2             DsServiceFlowId              uint                1 4294967295
+25.4             ServiceClassName             strzero             2         16
+25.6             QosParamSetType              uchar               0        255
+25.7             TrafficPriority              uchar               0          7
+25.8             MaxRateSustained             uint                0 4294967295
+25.9             MaxTrafficBurst              uint                0 4294967295
+25.10            MinReservedRate              uint                0 4294967295
+25.11            MinResPacketSize             ushort              0      65535
+25.12            ActQosParamsTimeout          ushort              0      65535
+25.13            AdmQosParamsTimeout          ushort              0      65535
+25.14            MaxDsLatency                 uint                0          0
+25.17            DsResequencing               uchar               0          1
+25.23            IpTosOverwrite               hexstr    
+25.27            DownstreamPeakTrafficRate    uint                0          0
+25.31            ServiceFlowRequiredAttributeMask hexstr    
+25.32            ServiceFlowForbiddenAttributeMask hexstr    
+25.33            ServiceFlowAttributeAggregationRuleMask hexstr    
+25.34            ApplicationIdentifier        uint                0          0
+25.35            BufferControl                aggregate 
+25.35.1          MinimumBuffer                uint                0 4294967295
+25.35.2          TargetBuffer                 uint                0 4294967295
+25.35.3          MaximumBuffer                uint                0 4294967295
+25.36            DownstreamAggregateServiceFlowReference aggregate 
+25.37            DownstreamMESPReference      ushort              1      65535
+25.40            AQMEncodings                 aggregate 
+25.40.1          SFAQMDisable                 uchar               0          1
+25.40.2          SFAQMLatencyTarget           uchar               0          1
+25.41            DataRateUnitSetting          uchar               0          3
+25.43            VendorSpecific               aggregate 
+25.43.1          CMLoadBalancingPolicyID      uint                0          0
+25.43.2          CMLoadBalancingPriority      uint                0          0
+25.43.3          CMLoadBalancingGroupID       uint                0          0
+25.43.4          CMRangingClassIDExtension    ushort              0          0
+25.43.5          L2VPNEncoding                aggregate 
+25.43.5.1        VPNIdentifier                hexstr    
+25.43.5.2        NSIEncapsulation             aggregate 
+25.43.5.2.1      ServiceMultiplexingValueOther lenzero   
+25.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
+25.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+25.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
+25.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+25.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
+25.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
+25.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+25.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
+25.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+25.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
+25.43.5.2.6.1    ITCIEncapsulation            hexstr    
+25.43.5.2.6.2    BDAEncapsulation             hexstr    
+25.43.5.2.6.3    BTCIEncapsulation            hexstr    
+25.43.5.2.6.4    ITPIDEncapsulation           hexstr    
+25.43.5.2.6.5    IPCPEncapsulation            hexstr    
+25.43.5.2.6.6    IDEIEncapsulation            hexstr    
+25.43.5.2.6.7    IUCAEncapsulation            hexstr    
+25.43.5.2.6.8    ISIDEncapsulation            hexstr    
+25.43.5.2.6.9    BTPIDEncapsulation           hexstr    
+25.43.5.2.6.10   BPCPEncapsulation            hexstr    
+25.43.5.2.6.11   BDEIEncapsulation            hexstr    
+25.43.5.2.6.12   BVIDEncapsulation            hexstr    
+25.43.5.2.8      ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+25.43.5.3        eSAFEDHCPSnooping            hexstr    
+25.43.5.4        CMInterfaceMaskCMIMSubtype   hexstr    
+25.43.5.5        AttachmentGroupID            hexstr    
+25.43.5.6        SourceAttachmentIndividualID hexstr    
+25.43.5.7        TargetAttachmentIndividualID hexstr    
+25.43.5.8        IngressUserPriority          uchar               0          7
+25.43.5.9        UserPriorityRange            char_list 
+25.43.5.10       L2VPNSADescriptorSubtype     hexstr    
+25.43.5.12       PseudowireType               uchar               4          5
+25.43.5.13       L2VPNMode                    uchar               0          1
+25.43.5.14       TPIDTranslation              aggregate 
+25.43.5.14.1     UpstreamTPIDTranslation      hexstr    
+25.43.5.14.2     DownstreamTPIDTranslation    hexstr    
+25.43.5.14.3     UpstreamSTPIDTranslation     hexstr    
+25.43.5.14.4     DownstreamSTPIDTranslation   hexstr    
+25.43.5.14.5     UpstreamBTPIDTranslation     hexstr    
+25.43.5.14.6     DownstreamBTPIDTranslation   hexstr    
+25.43.5.14.7     UpstreamITPIDTranslation     hexstr    
+25.43.5.14.8     DownstreamITPIDTranslation   hexstr    
+25.43.5.15       L2CPProcessing               aggregate 
+25.43.5.15.1     L2CPTunnelMode               uchar               0          1
+25.43.5.15.2     L2CPDMACAddress              ether     
+25.43.5.15.3     L2CPOverwrotingDMACAddress   ether     
+25.43.5.16       DACDisableEnableConfiguration uchar               0          1
+25.43.5.18       PseudowireClass              hexstr    
+25.43.5.19       ServiceDelimiter             aggregate 
+25.43.5.19.1     CVIDDelimiter                hexstr    
+25.43.5.19.2     SVIDDelimiter                hexstr    
+25.43.5.19.3     ISIDDelimiter                hexstr    
+25.43.5.19.4     BVIDDelimiter                hexstr    
+25.43.5.20       VirtualSwitchInstanceEncoding aggregate 
+25.43.5.20.1     VPLSClass                    hexstr    
+25.43.5.20.2     ETreeRole                    uchar               0          1
+25.43.5.20.3     ETreeRootVID                 hexstr    
+25.43.5.20.4     ETreeLeafVID                 hexstr    
+25.43.5.21       BGPAttribute                 aggregate 
+25.43.5.21.1     BGPVPNID                     uint                0          0
+25.43.5.21.2     RouteDistinguisher           hexstr    
+25.43.5.21.3     RouteTargetImport            hexstr    
+25.43.5.21.4     RouteTargetExport            hexstr    
+25.43.5.21.5     CEIDVEID                     ushort              0          0
+25.43.5.23       PseudowireSignaling          uchar               0          2
+25.43.5.24       SOAMSubtype                  aggregate 
+25.43.5.24.1     MEPConfiguration             aggregate 
+25.43.5.24.1.1   MDLevel                      uchar               0          7
+25.43.5.24.1.2   MDName                       string              2         16
+25.43.5.24.1.3   MAName                       string              2         28
+25.43.5.24.1.4   MEPID                        ushort              1       8191
+25.43.5.24.2     RemoteMEPConfiguration       aggregate 
+25.43.5.24.2.1   RemoteMDLevel                uchar               0          7
+25.43.5.24.2.2   RemoteMDName                 string              2         16
+25.43.5.24.2.3   RemoteMAName                 string              2         28
+25.43.5.24.2.4   RemoteMEPID                  ushort              1       8191
+25.43.5.24.3     FaultManagementConfiguration aggregate 
+25.43.5.24.3.1   ContinuityCheckMessages      uchar               0          2
+25.43.5.24.3.2   LoopbackFunction             uchar               0          1
+25.43.5.24.3.3   LinktraceFunction            uchar               0          1
+25.43.5.24.4     PerformanceManagementConfiguration aggregate 
+25.43.5.24.4.1   FrameDelayMeasurement        aggregate 
+25.43.5.24.4.1.1 FrameDelayMeasurementEnable  uchar               0          1
+25.43.5.24.4.1.2 FrameDelayMeasurementOneWayTwoWay uchar               0          1
+25.43.5.24.4.1.3 FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+25.43.5.24.4.2   FrameLossMeasurement         aggregate 
+25.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
+25.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+25.43.5.26       L2VPNDSID                    uint24    
+25.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+25.43.5.43.8     VendorIdentifier             hexstr    
+25.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
+25.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
+25.43.6.2        ExtendedCMTSMICBitmap        hexstr    
+25.43.6.3        ExplicitExtendedCMTSMICDigest hexstr    
+25.43.7          SAVAuthorizationEncoding     aggregate 
+25.43.7.1        SAVGroupName                 string              1         15
+25.43.7.2        SAVStaticPrefixRule          aggregate 
+25.43.7.2.1      SAVStaticPrefixAddress       ip_ip6    
+25.43.7.2.2      SAVStaticPrefixLength        uchar               0          0
+25.43.8          VendorIdentifier             hexstr    
+25.43.9          CMAttributeMasks             aggregate 
+25.43.9.1        CMDownstreamRequiredAttributeMask hexstr    
+25.43.9.2        CMDownstreamForbiddenAttributeMask hexstr    
+25.43.9.3        CMUpstreamRequiredAttributeMask hexstr    
+25.43.9.4        CMUpstreamForbiddenAttributeMask hexstr    
+25.43.10         IPMulticastJoinAuthorization aggregate 
+25.43.10.1       IPMulticastProfileName       string              1         15
+25.43.10.2       IPMulticastJoinAuthStaticSessionRule aggregate 
+25.43.10.2.1     MulticastRulePriority        uchar               0        255
+25.43.10.2.2     AuthorizationAction          uchar               0          1
+25.43.10.2.3     SourcePrefixAddress          ip_ip6    
+25.43.10.2.4     SourcePrefixLength           uchar               0        128
+25.43.10.2.5     GroupPrefixAddress           ip_ip6    
+25.43.10.2.6     GroupPrefixLength            uchar               0        128
+25.43.10.3       MaximumMulticastSessions     ushort              0          0
+25.43.11         ServiceTypeIdentifier        string              1         16
+25.43.12         DEMARCAutoConfiguration      aggregate 
+25.43.12.1       DACDisableEnableConfig       uchar               0          1
+25.43.12.2       CMIMEncoding                 hexstr    
+25.43.12.3       UpstreamServiceClassName     strzero             2         16
+25.43.12.4       DownstreamServiceClassName   strzero             2         16
+
+# TLV 26 MULPIv3.0-C01 Annex C.1.1.15 / C.2.3
+26               PHS                          aggregate 
+26.1             PHSClassifierRef             uchar               1        255
+26.2             PHSClassifierId              ushort              1      65535
+26.3             PHSServiceFlowRef            ushort              1      65535
+26.4             PHSServiceFlowId             uint                1 4294967295
+26.5             PHSDSCAction                 uchar               0          3
+26.7             PHSField                     hexstr    
+26.8             PHSIndex                     uchar               1        255
+26.9             PHSMask                      hexstr    
+26.10            PHSSize                      uchar               1        255
+26.11            PHSVerify                    uchar               0          1
+26.13            PHSDBCAction                 uchar               0          1
+26.43            VendorSpecific               aggregate 
+26.43.1          CMLoadBalancingPolicyID      uint                0          0
+26.43.2          CMLoadBalancingPriority      uint                0          0
+26.43.3          CMLoadBalancingGroupID       uint                0          0
+26.43.4          CMRangingClassIDExtension    ushort              0          0
+26.43.5          L2VPNEncoding                aggregate 
+26.43.5.1        VPNIdentifier                hexstr    
+26.43.5.2        NSIEncapsulation             aggregate 
+26.43.5.2.1      ServiceMultiplexingValueOther lenzero   
+26.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
+26.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+26.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
+26.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+26.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
+26.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
+26.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+26.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
+26.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+26.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
+26.43.5.2.6.1    ITCIEncapsulation            hexstr    
+26.43.5.2.6.2    BDAEncapsulation             hexstr    
+26.43.5.2.6.3    BTCIEncapsulation            hexstr    
+26.43.5.2.6.4    ITPIDEncapsulation           hexstr    
+26.43.5.2.6.5    IPCPEncapsulation            hexstr    
+26.43.5.2.6.6    IDEIEncapsulation            hexstr    
+26.43.5.2.6.7    IUCAEncapsulation            hexstr    
+26.43.5.2.6.8    ISIDEncapsulation            hexstr    
+26.43.5.2.6.9    BTPIDEncapsulation           hexstr    
+26.43.5.2.6.10   BPCPEncapsulation            hexstr    
+26.43.5.2.6.11   BDEIEncapsulation            hexstr    
+26.43.5.2.6.12   BVIDEncapsulation            hexstr    
+26.43.5.2.8      ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+26.43.5.3        eSAFEDHCPSnooping            hexstr    
+26.43.5.4        CMInterfaceMaskCMIMSubtype   hexstr    
+26.43.5.5        AttachmentGroupID            hexstr    
+26.43.5.6        SourceAttachmentIndividualID hexstr    
+26.43.5.7        TargetAttachmentIndividualID hexstr    
+26.43.5.8        IngressUserPriority          uchar               0          7
+26.43.5.9        UserPriorityRange            char_list 
+26.43.5.10       L2VPNSADescriptorSubtype     hexstr    
+26.43.5.12       PseudowireType               uchar               4          5
+26.43.5.13       L2VPNMode                    uchar               0          1
+26.43.5.14       TPIDTranslation              aggregate 
+26.43.5.14.1     UpstreamTPIDTranslation      hexstr    
+26.43.5.14.2     DownstreamTPIDTranslation    hexstr    
+26.43.5.14.3     UpstreamSTPIDTranslation     hexstr    
+26.43.5.14.4     DownstreamSTPIDTranslation   hexstr    
+26.43.5.14.5     UpstreamBTPIDTranslation     hexstr    
+26.43.5.14.6     DownstreamBTPIDTranslation   hexstr    
+26.43.5.14.7     UpstreamITPIDTranslation     hexstr    
+26.43.5.14.8     DownstreamITPIDTranslation   hexstr    
+26.43.5.15       L2CPProcessing               aggregate 
+26.43.5.15.1     L2CPTunnelMode               uchar               0          1
+26.43.5.15.2     L2CPDMACAddress              ether     
+26.43.5.15.3     L2CPOverwrotingDMACAddress   ether     
+26.43.5.16       DACDisableEnableConfiguration uchar               0          1
+26.43.5.18       PseudowireClass              hexstr    
+26.43.5.19       ServiceDelimiter             aggregate 
+26.43.5.19.1     CVIDDelimiter                hexstr    
+26.43.5.19.2     SVIDDelimiter                hexstr    
+26.43.5.19.3     ISIDDelimiter                hexstr    
+26.43.5.19.4     BVIDDelimiter                hexstr    
+26.43.5.20       VirtualSwitchInstanceEncoding aggregate 
+26.43.5.20.1     VPLSClass                    hexstr    
+26.43.5.20.2     ETreeRole                    uchar               0          1
+26.43.5.20.3     ETreeRootVID                 hexstr    
+26.43.5.20.4     ETreeLeafVID                 hexstr    
+26.43.5.21       BGPAttribute                 aggregate 
+26.43.5.21.1     BGPVPNID                     uint                0          0
+26.43.5.21.2     RouteDistinguisher           hexstr    
+26.43.5.21.3     RouteTargetImport            hexstr    
+26.43.5.21.4     RouteTargetExport            hexstr    
+26.43.5.21.5     CEIDVEID                     ushort              0          0
+26.43.5.23       PseudowireSignaling          uchar               0          2
+26.43.5.24       SOAMSubtype                  aggregate 
+26.43.5.24.1     MEPConfiguration             aggregate 
+26.43.5.24.1.1   MDLevel                      uchar               0          7
+26.43.5.24.1.2   MDName                       string              2         16
+26.43.5.24.1.3   MAName                       string              2         28
+26.43.5.24.1.4   MEPID                        ushort              1       8191
+26.43.5.24.2     RemoteMEPConfiguration       aggregate 
+26.43.5.24.2.1   RemoteMDLevel                uchar               0          7
+26.43.5.24.2.2   RemoteMDName                 string              2         16
+26.43.5.24.2.3   RemoteMAName                 string              2         28
+26.43.5.24.2.4   RemoteMEPID                  ushort              1       8191
+26.43.5.24.3     FaultManagementConfiguration aggregate 
+26.43.5.24.3.1   ContinuityCheckMessages      uchar               0          2
+26.43.5.24.3.2   LoopbackFunction             uchar               0          1
+26.43.5.24.3.3   LinktraceFunction            uchar               0          1
+26.43.5.24.4     PerformanceManagementConfiguration aggregate 
+26.43.5.24.4.1   FrameDelayMeasurement        aggregate 
+26.43.5.24.4.1.1 FrameDelayMeasurementEnable  uchar               0          1
+26.43.5.24.4.1.2 FrameDelayMeasurementOneWayTwoWay uchar               0          1
+26.43.5.24.4.1.3 FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+26.43.5.24.4.2   FrameLossMeasurement         aggregate 
+26.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
+26.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+26.43.5.26       L2VPNDSID                    uint24    
+26.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+26.43.5.43.8     VendorIdentifier             hexstr    
+26.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
+26.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
+26.43.6.2        ExtendedCMTSMICBitmap        hexstr    
+26.43.6.3        ExplicitExtendedCMTSMICDigest hexstr    
+26.43.7          SAVAuthorizationEncoding     aggregate 
+26.43.7.1        SAVGroupName                 string              1         15
+26.43.7.2        SAVStaticPrefixRule          aggregate 
+26.43.7.2.1      SAVStaticPrefixAddress       ip_ip6    
+26.43.7.2.2      SAVStaticPrefixLength        uchar               0          0
+26.43.8          VendorIdentifier             hexstr    
+26.43.9          CMAttributeMasks             aggregate 
+26.43.9.1        CMDownstreamRequiredAttributeMask hexstr    
+26.43.9.2        CMDownstreamForbiddenAttributeMask hexstr    
+26.43.9.3        CMUpstreamRequiredAttributeMask hexstr    
+26.43.9.4        CMUpstreamForbiddenAttributeMask hexstr    
+26.43.10         IPMulticastJoinAuthorization aggregate 
+26.43.10.1       IPMulticastProfileName       string              1         15
+26.43.10.2       IPMulticastJoinAuthStaticSessionRule aggregate 
+26.43.10.2.1     MulticastRulePriority        uchar               0        255
+26.43.10.2.2     AuthorizationAction          uchar               0          1
+26.43.10.2.3     SourcePrefixAddress          ip_ip6    
+26.43.10.2.4     SourcePrefixLength           uchar               0        128
+26.43.10.2.5     GroupPrefixAddress           ip_ip6    
+26.43.10.2.6     GroupPrefixLength            uchar               0        128
+26.43.10.3       MaximumMulticastSessions     ushort              0          0
+26.43.11         ServiceTypeIdentifier        string              1         16
+26.43.12         DEMARCAutoConfiguration      aggregate 
+26.43.12.1       DACDisableEnableConfig       uchar               0          1
+26.43.12.2       CMIMEncoding                 hexstr    
+26.43.12.3       UpstreamServiceClassName     strzero             2         16
+26.43.12.4       DownstreamServiceClassName   strzero             2         16
+
+# TLV 27 MULPIv3.0-C01 Annex C.1.4.1
+27               HMACDigest                   hexstr
+# TLV 28 MULPIv3.0-C01 Annex C.1.1.16
+28               MaxClassifiers               ushort              0          0
+# TLV 29 MULPIv3.0-C01 Annex C.1.1.17
+29               GlobalPrivacyEnable          uchar               0          1
+# TLV 30 MULPIv3.0-C01 Annex C.1.4.2
+30               AuthorizationBlock           hexstr
+# TLV 31 MULPIv3.0-C01 Annex C.1.4.3
+31               KeySequenceNumber           uchar
+# TLV 32 MULPIv3.0-C01 Annex C.1.2.10
+32               MfgCVCData                   hexstr    
+32               ManufacturerCVC              hexstr    
+# TLV 33 MULPIv3.0-C01 Annex C.1.2.11
+33               CoSignerCVCData              hexstr    
+33               CoSignerCVC                  hexstr    
+# TLV 34 MULPIv3.0-C01 Annex C.1.2.9
+34               SnmpV3Kickstart              aggregate 
+# TLV 34.1 MULPIv3.0-C01 Annex C.1.2.9.1
+34.1             SnmpV3SecurityName           string              1         16
+# TLV 34.2 MULPIv3.0-C01 Annex C.1.2.9.2
+34.2             SnmpV3MgrPublicNumber        hexstr    
+# TLV 35 MULPIv3.0-C01 Annex C.1.1.19.1
+35               SubMgmtControl               hexstr    
+# TLV 36 MULPIv3.0-C01 Annex C.1.1.19.2
+36               SubscriberManagementCPEIPTable ip_list   
+# TLV 37 MULPIv3.0-C01 Annex C.1.1.19.4
+37               SubMgmtFilters               ushort_list          4         10
+
+# TLV 38 MULPIv3.0-C01 Annex C.1.2.12
+38               SnmpV3TrapReceiver           aggregate 
+# TLV 38.1 MULPIv3.0-C01 Annex C.1.2.12.1
+38.1             SnmpV3TrapRxIP               ip        
+# TLV 38.2 MULPIv3.0-C01 Annex C.1.2.12.2
+38.2             SnmpV3TrapRxPort             ushort              0          0
+# TLV 38.3 MULPIv3.0-C01 Annex C.1.2.12.3
+38.3             SnmpV3TrapRxType             ushort              1          5
+# TLV 38.4 MULPIv3.0-C01 Annex C.1.2.12.4
+38.4             SnmpV3TrapRxTimeout          ushort              0      65535
+# TLV 38.5 MULPIv3.0-C01 Annex C.1.2.12.5
+38.5             SnmpV3TrapRxRetries          ushort              0      65535
+# TLV 38.6 MULPIv3.0-C01 Annex C.1.2.12.6
+38.6             SnmpV3TrapRxFilterOID        oid       
+# TLV 38.7 MULPIv3.0-C01 Annex C.1.2.12.7
+38.7             SnmpV3TrapRxSecurityName     string              1         16
+# TLV 38.8 MULPIv3.0-C01 Annex C.1.2.12.8
+38.8             SnmpV3TrapRxIP6              ip6       
+
+# TLV 39 MULPIv3.0-C01 Annex C.1.1.20
+39               DocsisTwoEnable              uchar               0          1
+# TLV 40 MULPIv3.0-C01 Annex C.1.1.21
+40               EnableTestModes              uchar               0          1
+
+# TLV 41 MULPIv3.0-C01 Annex C.1.1.22
+41               DsChannelList                aggregate 
+# TLV 41.1 MULPIv3.0-C01 Annex C.1.1.22.1
+41.1             SingleDsChannel              aggregate 
+# TLV 41.1.1 MULPIv3.0-C01 Annex C.1.1.22.1.1
+41.1.1           SingleDsTimeout              ushort              0      65535
+# TLV 41.1.1 MULPIv3.0-C01 Annex C.1.1.22.1.2
+41.1.2           SingleDsFrequency            uint                0 4294967295
+# TLV 41.2 MULPIv3.0-C01 Annex C.1.1.22.2
+41.2             DsFreqRange                  aggregate 
+# TLV 41.2.1 MULPIv3.0-C01 Annex C.1.1.22.2.1
+41.2.1           DsFreqRangeTimeout           ushort              0      65535
+# TLV 41.2.2 MULPIv3.0-C01 Annex C.1.1.22.2.2
+41.2.2           DsFreqRangeStart             uint                0 4294967295
+# TLV 41.2.3 MULPIv3.0-C01 Annex C.1.1.22.2.3
+41.2.3           DsFreqRangeEnd               uint                0 4294967295
+# TLV 41.2.4 MULPIv3.0-C01 Annex C.1.1.22.2.4
+41.2.4           DsFreqRangeStepSize          uint                0 4294967295
+# TLV 41.3 MULPIv3.0-C01 Annex C.1.1.22.3
+41.3             DefaultScanTimeout           ushort              0      65535
+
+# TLV 42 MULPIv3.0-C01 Annex C.1.1.23
+42               MulticastMACAddress          ether     
+
+# TLV 43 MULPIv3.0-C01 Annex C.1.1.18.1
+43               VendorSpecific               aggregate 
+# TLV 43.1 MULPIv3.0-C01 Annex C.1.1.18.1.1
+43.1             CMLoadBalancingPolicyID      uint                0          0
+# TLV 43.2 MULPIv3.0-C01 Annex C.1.1.18.1.2
+43.2             CMLoadBalancingPriority      uint                0          0
+# TLV 43.3 MULPIv3.0-C01 Annex C.1.1.18.1.3
+43.3             CMLoadBalancingGroupID       uint                0          0
+# TLV 43.4 MULPIv3.0-C01 Annex C.1.1.18.1.4
+43.4             CMRangingClassIDExtension    ushort              0          0
+
+# TLV 43.5 MULPIv3.0-C01 Annex C.1.1.18.1.5
+43.5             L2VPNEncoding                aggregate 
+43.5.1           VPNIdentifier                hexstr    
+43.5.2           NSIEncapsulation             aggregate 
+43.5.2.1         ServiceMultiplexingValueOther lenzero   
+43.5.2.2         NSIEncapsulationSingleQTag   ushort              0       4096
+43.5.2.3         NSIEncapsulationDualQTag     dual_qtag 
+43.5.2.4         ServiceMultiplexingValueMPLSPW aggregate 
+43.5.2.4.1       MPLSPseudowireID             uint                0          0
+43.5.2.4.2       MPLSPeerIpAddress            char_ip_ip6
+43.5.2.4.3       MPLSPseudowireType           uchar               0          0
+43.5.2.4.4       MPLSBackupPseudowireID       uint                0          0
+43.5.2.4.5       MPLSBackupPeerIpAddress      char_ip_ip6
+43.5.2.5         ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+43.5.2.6         IEEE8021ahEncapsulation      aggregate 
+43.5.2.6.1       ITCIEncapsulation            hexstr    
+43.5.2.6.2       BDAEncapsulation             hexstr    
+43.5.2.6.3       BTCIEncapsulation            hexstr    
+43.5.2.6.4       ITPIDEncapsulation           hexstr    
+43.5.2.6.5       IPCPEncapsulation            hexstr    
+43.5.2.6.6       IDEIEncapsulation            hexstr    
+43.5.2.6.7       IUCAEncapsulation            hexstr    
+43.5.2.6.8       ISIDEncapsulation            hexstr    
+43.5.2.6.9       BTPIDEncapsulation           hexstr    
+43.5.2.6.10      BPCPEncapsulation            hexstr    
+43.5.2.6.11      BDEIEncapsulation            hexstr    
+43.5.2.6.12      BVIDEncapsulation            hexstr    
+43.5.2.8         ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+43.5.3           eSAFEDHCPSnooping            hexstr    
+43.5.4           CMInterfaceMaskCMIMSubtype   hexstr    
+43.5.5           AttachmentGroupID            hexstr    
+43.5.6           SourceAttachmentIndividualID hexstr    
+43.5.7           TargetAttachmentIndividualID hexstr    
+43.5.8           IngressUserPriority          uchar               0          7
+43.5.9           UserPriorityRange            char_list 
+43.5.10          L2VPNSADescriptorSubtype     hexstr    
+43.5.12          PseudowireType               uchar               4          5
+43.5.13          L2VPNMode                    uchar               0          1
+43.5.14          TPIDTranslation              aggregate 
+43.5.14.1        UpstreamTPIDTranslation      hexstr    
+43.5.14.2        DownstreamTPIDTranslation    hexstr    
+43.5.14.3        UpstreamSTPIDTranslation     hexstr    
+43.5.14.4        DownstreamSTPIDTranslation   hexstr    
+43.5.14.5        UpstreamBTPIDTranslation     hexstr    
+43.5.14.6        DownstreamBTPIDTranslation   hexstr    
+43.5.14.7        UpstreamITPIDTranslation     hexstr    
+43.5.14.8        DownstreamITPIDTranslation   hexstr    
+43.5.15          L2CPProcessing               aggregate 
+43.5.15.1        L2CPTunnelMode               uchar               0          1
+43.5.15.2        L2CPDMACAddress              ether     
+43.5.15.3        L2CPOverwrotingDMACAddress   ether     
+43.5.16          DACDisableEnableConfiguration uchar               0          1
+43.5.18          PseudowireClass              hexstr    
+43.5.19          ServiceDelimiter             aggregate 
+43.5.19.1        CVIDDelimiter                hexstr    
+43.5.19.2        SVIDDelimiter                hexstr    
+43.5.19.3        ISIDDelimiter                hexstr    
+43.5.19.4        BVIDDelimiter                hexstr    
+43.5.20          VirtualSwitchInstanceEncoding aggregate 
+43.5.20.1        VPLSClass                    hexstr    
+43.5.20.2        ETreeRole                    uchar               0          1
+43.5.20.3        ETreeRootVID                 hexstr    
+43.5.20.4        ETreeLeafVID                 hexstr    
+43.5.21          BGPAttribute                 aggregate 
+43.5.21.1        BGPVPNID                     uint                0          0
+43.5.21.2        RouteDistinguisher           hexstr    
+43.5.21.3        RouteTargetImport            hexstr    
+43.5.21.4        RouteTargetExport            hexstr    
+43.5.21.5        CEIDVEID                     ushort              0          0
+43.5.23          PseudowireSignaling          uchar               0          2
+43.5.24          SOAMSubtype                  aggregate 
+43.5.24.1        MEPConfiguration             aggregate 
+43.5.24.1.1      MDLevel                      uchar               0          7
+43.5.24.1.2      MDName                       string              2         16
+43.5.24.1.3      MAName                       string              2         28
+43.5.24.1.4      MEPID                        ushort              1       8191
+43.5.24.2        RemoteMEPConfiguration       aggregate 
+43.5.24.2.1      RemoteMDLevel                uchar               0          7
+43.5.24.2.2      RemoteMDName                 string              2         16
+43.5.24.2.3      RemoteMAName                 string              2         28
+43.5.24.2.4      RemoteMEPID                  ushort              1       8191
+43.5.24.3        FaultManagementConfiguration aggregate 
+43.5.24.3.1      ContinuityCheckMessages      uchar               0          2
+43.5.24.3.2      LoopbackFunction             uchar               0          1
+43.5.24.3.3      LinktraceFunction            uchar               0          1
+43.5.24.4        PerformanceManagementConfiguration aggregate 
+43.5.24.4.1      FrameDelayMeasurement        aggregate 
+43.5.24.4.1.1    FrameDelayMeasurementEnable  uchar               0          1
+43.5.24.4.1.2    FrameDelayMeasurementOneWayTwoWay uchar               0          1
+43.5.24.4.1.3    FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+43.5.24.4.2      FrameLossMeasurement         aggregate 
+43.5.24.4.2.1    FrameLossMeasurementEnable   uchar               0          1
+43.5.24.4.2.2    FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+43.5.26          L2VPNDSID                    uint24    
+43.5.43          VendorSpecificL2VPNSubtype   aggregate 
+43.5.43.8        VendorIdentifier             hexstr    
+43.5.43.36       MPLSType                     uchar               1        255
+43.5.43.38       MPLSVCID                     uint                1 4294967295
+43.5.43.39       MPLSPeername                 string
+
+# TLV 43.6 MULPIv3.0-C01 Annex C.1.1.18.1.6
+43.6             ExtendedCMTSMICConfiguration aggregate 
+# TLV 43.6.1 MULPIv3.0-C01 Annex C.1.1.18.1.6.1
+43.6.1           ExtendedCMTSMICHMACDigestType uchar               0          0
+# TLV 43.6.2 MULPIv3.0-C01 Annex C.1.1.18.1.6.2
+43.6.2           ExtendedCMTSMICHMACBitmap    hexstr    
+# TLV 43.6.3 MULPIv3.0-C01 Annex C.1.1.18.1.6.3
+43.6.3           ExtendedCMTSMICHMACDigest    hexstr    
+
+# TLV 43.7 MULPIv3.0-C01 Annex C.1.1.18.1.7
+43.7             SAVAuthorizationEncoding     aggregate 
+# TLV 43.7.1 MULPIv3.0-C01 Annex C.1.1.18.1.7.1
+43.7.1           SAVGroupName                 string              1         15
+# TLV 43.7.2 MULPIv3.0-C01 Annex C.1.1.18.1.7.2
+43.7.2           SAVStaticPrefixRule          aggregate 
+# TLV 43.7.2.1 MULPIv3.0-C01 Annex C.1.1.18.1.7.2.1
+43.7.2.1         SAVStaticPrefixAddress       ip_ip6    
+# TLV 43.7.2.2 MULPIv3.0-C01 Annex C.1.1.18.1.7.2.2
+43.7.2.2         SAVStaticPrefixLength        uchar               0          0
+
+# TODO
+43.8             VendorIdentifier             hexstr    
+
+# TLV 43.9 MULPIv3.0-C01 Annex C.1.1.18.1.8
+43.9             CMAttributeMasks             aggregate 
+# TLV 43.9.1 MULPIv3.0-C01 Annex C.1.1.18.1.8.1
+43.9.1           CMDownstreamRequiredAttributeMask hexstr    
+# TLV 43.9.2 MULPIv3.0-C01 Annex C.1.1.18.1.8.2
+43.9.2           CMDownstreamForbiddenAttributeMask hexstr    
+# TLV 43.9.3 MULPIv3.0-C01 Annex C.1.1.18.1.8.3
+43.9.3           CMUpstreamRequiredAttributeMask hexstr    
+# TLV 43.9.4 MULPIv3.0-C01 Annex C.1.1.18.1.8.4
+43.9.4           CMUpstreamForbiddenAttributeMask hexstr    
+
+# TLV 43.10 MULPIv3.0-C01 Annex C.1.1.18.1.9
+43.10            IPMulticastJoinAuthorization aggregate 
+# TLV 43.10.1 MULPIv3.0-C01 Annex C.1.1.18.1.9.1
+43.10.1          IPMulticastProfileName       string              1         15
+# TLV 43.10.2 MULPIv3.0-C01 Annex C.1.1.18.1.9.2
+43.10.2          IPMulticastJoinAuthStaticSessionRule aggregate 
+# TLV 43.10.2.1 MULPIv3.0-C01 Annex C.1.1.18.1.9.2.1
+43.10.2.1        MulticastRulePriority        uchar               0        255
+# TLV 43.10.2.2 MULPIv3.0-C01 Annex C.1.1.18.1.9.2.2
+43.10.2.2        AuthorizationAction          uchar               0          1
+# TLV 43.10.2.3 MULPIv3.0-C01 Annex C.1.1.18.1.9.2.3
+43.10.2.3        SourcePrefixAddress          ip_ip6    
+# TLV 43.10.2.4 MULPIv3.0-C01 Annex C.1.1.18.1.9.2.4
+43.10.2.4        SourcePrefixLength           uchar               0        128
+# TLV 43.10.2.5 MULPIv3.0-C01 Annex C.1.1.18.1.9.2.5
+43.10.2.5        GroupPrefixAddress           ip_ip6    
+# TLV 43.10.2.6 MULPIv3.0-C01 Annex C.1.1.18.1.9.2.6
+43.10.2.6        GroupPrefixLength            uchar               0        128
+# TLV 43.10.3 MULPIv3.0-C01 Annex C.1.1.18.1.9.3
+43.10.3          MaximumMulticastSessions     ushort              0          0
+# TLV 43.11 MULPIv3.0-C01 Annex C.1.1.18.1.10
+43.11            ServiceTypeIdentifier        string              1         16
+# TLV 43.12 MULPIv3.0-C01 Annex C.1.1.18.1.11
+43.12            DEMARCAutoConfiguration      aggregate 
+43.12.1          DACDisableEnableConfig       uchar               0          1
+43.12.2          CMIMEncoding                 hexstr    
+43.12.3          UpstreamServiceClassName     strzero             2         16
+43.12.4          DownstreamServiceClassName   strzero             2         16
+
+# TLV 44 MULPIv3.0-C01 Annex C.1.3.5
+44               VendorSpecificCapabilities   aggregate
+
+# TLV 45 MULPIv3.0-C01 Annex C.1.1.24
+45               DUTFiltering                 aggregate 
+# TLV 45.1 L2VPN-I13 Annex B.2.1
+45.1             DUTControl                   uchar               0          1
+# TLV 45.2 L2VPN-I13 Annex B.2.2
+45.2             DUTCMIM                      hexstr    
+
+# TLV 53 MULPIv3.0-C01 Annex C.1.2.13
+53               SNMPv1v2cCoexistenceConfig   aggregate 
+53               SNMPv1v2c                    aggregate 
+# TLV 53.1 MULPIv3.0-C01 Annex C.1.2.13.1
+53.1             SNMPv1v2cCommunityName       string              0          0
+53.1             CommunityName                string              0          0
+# TLV 53.2 MULPIv3.0-C01 Annex C.1.2.13.2
+53.2             SNMPv1v2cTransportAddressAccess aggregate 
+53.2             Transport                       aggregate 
+# TLV 53.2.1 MULPIv3.0-C01 Annex C.1.2.13.2.1
+53.2.1           SNMPv1v2cTransportAddress    ip_ip6_port
+53.2.1           Address                      hexstr
+# TLV 53.2.2 MULPIv3.0-C01 Annex C.1.2.13.2.2
+53.2.2           SNMPv1v2cTransportAddressMask ip_ip6_port
+53.2.2           Mask                         hexstr
+# TLV 53.2.3 MULPIv3.0-C01 Annex C.1.2.13.3
+53.3             SNMPv1v2cAccessViewType      uchar               1          2
+53.3             ViewType                     uchar               1          2
+# TLV 53.2.4 MULPIv3.0-C01 Annex C.1.2.13.4
+53.4             SNMPv1v2cAccessViewName      string              0          0
+53.4             ViewName                     string              0          0
+
+# TLV 54 MULPIv3.0-C01 Annex C.1.2.14
+54               SNMPv3AccessViewConfiguration aggregate 
+# TLV 54.1 MULPIv3.0-C01 Annex C.1.2.14.1
+54.1             SNMPv3AccessViewName         string              0          0
+# TLV 54.2 MULPIv3.0-C01 Annex C.1.2.14.2
+54.2             SNMPv3AccessViewSubtree      oid       
+# TLV 54.3 MULPIv3.0-C01 Annex C.1.2.14.3
+54.3             SNMPv3AccessViewMask         hexstr    
+# TLV 54.4 MULPIv3.0-C01 Annex C.1.2.14.4
+54.4             SNMPv3AccessViewType         uchar               1          2
+
+# TODO
+55               SNMPCPEAccessControl         uchar               0          1
+
+# TLV 56 MULPIv3.0-C01 Annex C.1.1.25
+56               ChannelAssignmentConfig      aggregate 
+# TLV 56.1 MULPIv3.0-C01 Annex C.1.1.25.1
+56.1             CaTransmit                   uchar               0        255
+# TLV 56.2 MULPIv3.0-C01 Annex C.1.1.25.2
+56.2             CaReceive                    uint         88000000  860000000
+
+# TLV 57 MULPIv3.0-C01 Annex C.1.3.6
+57               CMInitializationReason       uchar               0        255
+
+58               SwUpgradeServer6             ip6       
+59               TFTPProvisionedModemIPv6Address ip6       
+60               UpstreamDropPacketClassification aggregate 
+60.1             ClassifierReference          uchar               1        255
+60.2             ClassifierIdentifier         ushort              1      65535
+60.5             RulePriority                 uchar               0          0
+60.7             DynamicServiceChangeAction   uchar               0          2
+60.9             IPv4PacketClassification     aggregate 
+60.9.1           IPv4Tos                      hexstr    
+60.9.2           IPProtocol                   ushort              0        257
+60.9.3           IPv4SourceAddress            ip        
+60.9.4           IPv4SourceMask               ip        
+60.9.5           IPv4DestinationAddress       ip        
+60.9.6           IPv4DestinationMask          ip        
+60.9.7           SourcePortStart              ushort              0          0
+60.9.8           SourcePortEnd                ushort              0          0
+60.9.9           DestinationPortStart         ushort              0          0
+60.9.10          DestinationPortEnd           ushort              0          0
+60.10            EthernetLLCPacketClassification aggregate 
+60.10.1          DestinationMACAddress        ethermask 
+60.10.2          SourceMACAddress             ether     
+60.10.3          EthertypeDSAPMacType         hexstr    
+60.11            IEEE8021PQPacketClassification aggregate 
+60.11.1          UserPriority                 char_list 
+60.11.2          VlanID                       ushort              0          0
+60.12            IPv6PacketClassification     aggregate 
+60.12.1          IPv6TrafficClassRangeandMask hexstr    
+60.12.2          IPv6FlowLabel                hexstr    
+60.12.3          IPv6NextHeaderType           ushort              0        257
+60.12.4          IPv6SourceAddress            ip6       
+60.12.5          IPv6SourcePrefixLength       uchar               0        128
+60.12.6          IPv6DestinationAddress       ip6       
+60.12.7          IPv6DestinationPrefixLength  uchar               0        128
+60.13            CMInterfaceMaskEncoding      hexstr    
+60.14            STagCTagFrameClassification  aggregate 
+60.14.1          STPID                        hexstr    
+60.14.2          SVID                         hexstr    
+60.14.3          SPCP                         hexstr    
+60.14.4          SDEI                         hexstr    
+60.14.5          CTPID                        hexstr    
+60.14.6          CVID                         hexstr    
+60.14.7          CPCP                         hexstr    
+60.14.8          CCFI                         hexstr    
+60.14.9          STCI                         hexstr    
+60.14.10         CTCI                         hexstr    
+60.15            IEEE8021ahPacketClassification aggregate 
+60.15.1          ITPID                        hexstr    
+60.15.2          ISID                         hexstr    
+60.15.3          ITCI                         hexstr    
+60.15.4          IPCP                         hexstr    
+60.15.5          IDEI                         hexstr    
+60.15.6          IUCA                         hexstr    
+60.15.7          BTPID                        hexstr    
+60.15.8          BTCI                         hexstr    
+60.15.9          BPCP                         hexstr    
+60.15.10         BDEI                         hexstr    
+60.15.11         BVID                         hexstr    
+60.15.12         BDA                          ether     
+60.15.13         BSA                          ether     
+60.16            ICMPv4ICMPv6PacketClassification aggregate 
+60.16.1          ICMPv4ICMPv6TypeStart        uchar               0        255
+60.16.2          ICMPv4ICMPv6TypeEnd          uchar               0        255
+60.17            MPLSClassificationEncoding   aggregate 
+60.17.1          MPLSTCbits                   hexstr    
+60.17.2          MPLSLabel                    hexstr    
+60.43            VendorSpecific               aggregate 
+60.43.1          CMLoadBalancingPolicyID      uint                0          0
+60.43.2          CMLoadBalancingPriority      uint                0          0
+60.43.3          CMLoadBalancingGroupID       uint                0          0
+60.43.4          CMRangingClassIDExtension    ushort              0          0
+60.43.5          L2VPNEncoding                aggregate 
+60.43.5.1        VPNIdentifier                hexstr    
+60.43.5.2        NSIEncapsulation             aggregate 
+60.43.5.2.1      ServiceMultiplexingValueOther lenzero   
+60.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
+60.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+60.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
+60.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+60.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
+60.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
+60.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+60.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
+60.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
+60.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
+60.43.5.2.6.1    ITCIEncapsulation            hexstr    
+60.43.5.2.6.2    BDAEncapsulation             hexstr    
+60.43.5.2.6.3    BTCIEncapsulation            hexstr    
+60.43.5.2.6.4    ITPIDEncapsulation           hexstr    
+60.43.5.2.6.5    IPCPEncapsulation            hexstr    
+60.43.5.2.6.6    IDEIEncapsulation            hexstr    
+60.43.5.2.6.7    IUCAEncapsulation            hexstr    
+60.43.5.2.6.8    ISIDEncapsulation            hexstr    
+60.43.5.2.6.9    BTPIDEncapsulation           hexstr    
+60.43.5.2.6.10   BPCPEncapsulation            hexstr    
+60.43.5.2.6.11   BDEIEncapsulation            hexstr    
+60.43.5.2.6.12   BVIDEncapsulation            hexstr    
+60.43.5.2.8      ServiceMultiplexingValueIEEE8021adSTPID hexstr    
+60.43.5.3        eSAFEDHCPSnooping            hexstr    
+60.43.5.4        CMInterfaceMaskCMIMSubtype   hexstr    
+60.43.5.5        AttachmentGroupID            hexstr    
+60.43.5.6        SourceAttachmentIndividualID hexstr    
+60.43.5.7        TargetAttachmentIndividualID hexstr    
+60.43.5.8        IngressUserPriority          uchar               0          7
+60.43.5.9        UserPriorityRange            char_list 
+60.43.5.10       L2VPNSADescriptorSubtype     hexstr    
+60.43.5.12       PseudowireType               uchar               4          5
+60.43.5.13       L2VPNMode                    uchar               0          1
+60.43.5.14       TPIDTranslation              aggregate 
+60.43.5.14.1     UpstreamTPIDTranslation      hexstr    
+60.43.5.14.2     DownstreamTPIDTranslation    hexstr    
+60.43.5.14.3     UpstreamSTPIDTranslation     hexstr    
+60.43.5.14.4     DownstreamSTPIDTranslation   hexstr    
+60.43.5.14.5     UpstreamBTPIDTranslation     hexstr    
+60.43.5.14.6     DownstreamBTPIDTranslation   hexstr    
+60.43.5.14.7     UpstreamITPIDTranslation     hexstr    
+60.43.5.14.8     DownstreamITPIDTranslation   hexstr    
+60.43.5.15       L2CPProcessing               aggregate 
+60.43.5.15.1     L2CPTunnelMode               uchar               0          1
+60.43.5.15.2     L2CPDMACAddress              ether     
+60.43.5.15.3     L2CPOverwrotingDMACAddress   ether     
+60.43.5.16       DACDisableEnableConfiguration uchar               0          1
+60.43.5.18       PseudowireClass              hexstr    
+60.43.5.19       ServiceDelimiter             aggregate 
+60.43.5.19.1     CVIDDelimiter                hexstr    
+60.43.5.19.2     SVIDDelimiter                hexstr    
+60.43.5.19.3     ISIDDelimiter                hexstr    
+60.43.5.19.4     BVIDDelimiter                hexstr    
+60.43.5.20       VirtualSwitchInstanceEncoding aggregate 
+60.43.5.20.1     VPLSClass                    hexstr    
+60.43.5.20.2     ETreeRole                    uchar               0          1
+60.43.5.20.3     ETreeRootVID                 hexstr    
+60.43.5.20.4     ETreeLeafVID                 hexstr    
+60.43.5.21       BGPAttribute                 aggregate 
+60.43.5.21.1     BGPVPNID                     uint                0          0
+60.43.5.21.2     RouteDistinguisher           hexstr    
+60.43.5.21.3     RouteTargetImport            hexstr    
+60.43.5.21.4     RouteTargetExport            hexstr    
+60.43.5.21.5     CEIDVEID                     ushort              0          0
+60.43.5.23       PseudowireSignaling          uchar               0          2
+60.43.5.24       SOAMSubtype                  aggregate 
+60.43.5.24.1     MEPConfiguration             aggregate 
+60.43.5.24.1.1   MDLevel                      uchar               0          7
+60.43.5.24.1.2   MDName                       string              2         16
+60.43.5.24.1.3   MAName                       string              2         28
+60.43.5.24.1.4   MEPID                        ushort              1       8191
+60.43.5.24.2     RemoteMEPConfiguration       aggregate 
+60.43.5.24.2.1   RemoteMDLevel                uchar               0          7
+60.43.5.24.2.2   RemoteMDName                 string              2         16
+60.43.5.24.2.3   RemoteMAName                 string              2         28
+60.43.5.24.2.4   RemoteMEPID                  ushort              1       8191
+60.43.5.24.3     FaultManagementConfiguration aggregate 
+60.43.5.24.3.1   ContinuityCheckMessages      uchar               0          2
+60.43.5.24.3.2   LoopbackFunction             uchar               0          1
+60.43.5.24.3.3   LinktraceFunction            uchar               0          1
+60.43.5.24.4     PerformanceManagementConfiguration aggregate 
+60.43.5.24.4.1   FrameDelayMeasurement        aggregate 
+60.43.5.24.4.1.1 FrameDelayMeasurementEnable  uchar               0          1
+60.43.5.24.4.1.2 FrameDelayMeasurementOneWayTwoWay uchar               0          1
+60.43.5.24.4.1.3 FrameDelayMeasurementTransmissionPeriodicity ushort              0          0
+60.43.5.24.4.2   FrameLossMeasurement         aggregate 
+60.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
+60.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
+60.43.5.26       L2VPNDSID                    uint24    
+60.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+60.43.5.43.8     VendorIdentifier             hexstr    
+60.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
+60.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
+60.43.6.2        ExtendedCMTSMICBitmap        hexstr    
+60.43.6.3        ExplicitExtendedCMTSMICDigest hexstr    
+60.43.7          SAVAuthorizationEncoding     aggregate 
+60.43.7.1        SAVGroupName                 string              1         15
+60.43.7.2        SAVStaticPrefixRule          aggregate 
+60.43.7.2.1      SAVStaticPrefixAddress       ip_ip6    
+60.43.7.2.2      SAVStaticPrefixLength        uchar               0          0
+60.43.8          VendorIdentifier             hexstr    
+60.43.9          CMAttributeMasks             aggregate 
+60.43.9.1        CMDownstreamRequiredAttributeMask hexstr    
+60.43.9.2        CMDownstreamForbiddenAttributeMask hexstr    
+60.43.9.3        CMUpstreamRequiredAttributeMask hexstr    
+60.43.9.4        CMUpstreamForbiddenAttributeMask hexstr    
+60.43.10         IPMulticastJoinAuthorization aggregate 
+60.43.10.1       IPMulticastProfileName       string              1         15
+60.43.10.2       IPMulticastJoinAuthStaticSessionRule aggregate 
+60.43.10.2.1     MulticastRulePriority        uchar               0        255
+60.43.10.2.2     AuthorizationAction          uchar               0          1
+60.43.10.2.3     SourcePrefixAddress          ip_ip6    
+60.43.10.2.4     SourcePrefixLength           uchar               0        128
+60.43.10.2.5     GroupPrefixAddress           ip_ip6    
+60.43.10.2.6     GroupPrefixLength            uchar               0        128
+60.43.10.3       MaximumMulticastSessions     ushort              0          0
+60.43.11         ServiceTypeIdentifier        string              1         16
+60.43.12         DEMARCAutoConfiguration      aggregate 
+60.43.12.1       DACDisableEnableConfig       uchar               0          1
+60.43.12.2       CMIMEncoding                 hexstr    
+60.43.12.3       UpstreamServiceClassName     strzero             2         16
+60.43.12.4       DownstreamServiceClassName   strzero             2         16
+
+# TLV 61 MULPIv3.0-C01 Annex C.1.1.19.3
+61               SubMgmtCPEIPv6PrefixList     ip6_prefix_list
+# TLV 62 MULPIv3.0-C01 Annex C.1.1.26
+62               UpstreamDropClassifierGroupID char_list 
+# TLV 63 MULPIv3.0-C01 Annex C.1.1.19.5
+63               SubMgmtControl6              ushort              0          0
+# TLV 64 MULPIv3.0-C01 Annex C.1.1.27
+64               CMTSStaticMulticastSessionEncodings aggregate 
+# TLV 64.1 MULPIv3.0-C01 Annex C.1.1.27.1
+64.1             CMTSStaticMulticastSessionGroup ip_ip6    
+# TLV 64.2 MULPIv3.0-C01 Annex C.1.1.27.2
+64.2             CMTSStaticMulticastSessionSource ip_ip6    
+# TLV 64.3 MULPIv3.0-C01 Annex C.1.1.27.3
+64.3             CMTSStaticMulticastSessionCMIM hexstr    
+
+# TLV 65 L2VPN-I15 Annex B.7
+65               L2VPNMACAgingEncoding        aggregate 
+# TLV 65.1 L2VPN-I15 Annex B.7.1
+65.1             L2VPNMACAgingMode            uchar               0          1
+
+# TLV 66 MULPIv3.0-C01 Annex C.1.2.16
+66               ManagementEventControl       uint                0          0
+# TLV 67 MULPIv3.0-C01 Annex C.1.1.19.6
+67               SubscriberManagementCPEIPv6Table ip6_list  
+# TLV 68 MULPIv3.0-C01 Annex C.1.2.17
+68               DefaultUpstreamTargetBuffer  ushort              0          0
+# TLV 69 MULPIv3.0-C01 Annex C.1.2.18
+69               MACAddressLearningControlEncoding aggregate 
+# TLV 69.1 MULPIv3.0-C01 Annex C.1.2.18.1
+69.1             MACAddressLearningControl    uchar               0          1
+# TLV 69.2 MULPIv3.0-C01 Annex C.1.2.18.2
+69.2             MACAddressLearningHoldoffTimer uchar               0         10
+
+# TLV 70 MULPIv3.0-C01 Annex C.1.1.28
+70               UpstreamAggregateServiceFlow aggregate 
+70.1             UpstreamServiceFlowReference ushort              1      65535
+70.36            UpstreamAggregateServiceFlowReference aggregate 
+70.37            UpstreamMESPReference        ushort              1      65535
+
+# TLV 71 MULPIv3.0-C01 Annex C.1.1.29
+71               DownstreamAggregateServiceFlow aggregate 
+71.1             DownstreamServiceFlowReference ushort              1      65535
+71.36            DownstreamAggregateServiceFlowReference aggregate 
+71.37            DownstreamMESPReference      ushort              1      65535
+
+# TLV 72 MULPIv3.0-C01 Annex C.2.2.10
+72               MetroEthernetServiceProfile  aggregate 
+# TLV 72.1 MULPIv3.0-C01 Annex C.2.2.10.1
+72.1             MESPReference                uchar               1        255
+# TLV 72.2 MULPIv3.0-C01 Annex C.2.2.10.2
+72.2             MESPBandwidthProfile         aggregate 
+# TLV 72.2.1 MULPIv3.0-C01 Annex C.2.2.10.2.1
+72.2.1           CIR                          uint                0          0
+# TLV 72.2.2 MULPIv3.0-C01 Annex C.2.2.10.2.2
+72.2.2           CBR                          uint                0          0
+# TLV 72.2.3 MULPIv3.0-C01 Annex C.2.2.10.2.3
+72.2.3           EIR                          uint                0          0
+# TLV 72.2.4 MULPIv3.0-C01 Annex C.2.2.10.2.4
+72.2.4           EBS                          uint                0          0
+# TLV 72.2.5 MULPIv3.0-C01 Annex C.2.2.10.2.5
+72.2.5           CouplingFlag                 uchar               0          1
+# TLV 72.2.6 MULPIv3.0-C01 Annex C.2.2.10.2.6
+72.2.6           ColorMode                    aggregate 
+# TLV 72.2.6.1 MULPIv3.0-C01 Annex C.2.2.10.2.6.1
+72.2.6.1         ColorIdentificationField     uchar               0          9
+# TLV 72.2.6.2 MULPIv3.0-C01 Annex C.2.2.10.2.6.2
+72.2.6.2         ColorIdentificationFieldValue hexstr    
+# TLV 72.2.7 MULPIv3.0-C01 Annex C.2.2.10.2.7
+72.2.7           ColorMarking                 aggregate 
+# TLV 72.2.7.1 MULPIv3.0-C01 Annex C.2.2.10.2.7.1
+72.2.7.1         ColorMarkingField            uchar               0          5
+# TLV 72.2.7.2 MULPIv3.0-C01 Annex C.2.2.10.2.7.2
+72.2.7.2         ColorMarkingFieldValue       hexstr    
+# TLV 72.3 MULPIv3.0-C01 Annex C.2.2.10.3
+72.3             MESPName                     strzero             2        254
+# TLV 73 MULPIv3.0-C01 Annex C.1.2.19
+73               NetworkTimingProfile         aggregate 
+# TLV 73.1 MULPIv3.0-C01 Annex C.1.2.19.1
+73.1             NetworkTimingProfileReference ushort              1      65536
+# TLV 73.2 MULPIv3.0-C01 Annex C.1.2.19.2
+73.2             NetworkTimingProfileName     strzero             2         16
+
+# TLV 74 MULPIv3.0-C01 Annex C.1.1.30
+74               EnergyManagementParameter    aggregate 
+# TLV 74.1 MULPIv3.0-C01 Annex C.1.1.30.1
+74.1             EnergyManagementFeatureControl uint                0          1
+# TLV 74.2 MULPIv3.0-C01 Annex C.1.1.30.2
+74.2             EnergyManagement1x1Mode      aggregate 
+# TLV 74.2.1 MULPIv3.0-C01 Annex C.1.1.30.2.1
+74.2.1           DownstreamActivityDetectionParameters aggregate 
+# TLV 74.2.1.1 MULPIv3.0-C01 Annex C.1.1.30.2.1.1
+74.2.1.1         DownstreamEntryBitrateThreshold uint                0          0
+# TLV 74.2.1.2 MULPIv3.0-C01 Annex C.1.1.30.2.1.2
+74.2.1.2         DownstreamEntryTimeThreshold ushort              1      65535
+# TLV 74.2.1.3 MULPIv3.0-C01 Annex C.1.1.30.2.1.3
+74.2.1.3         DownstreamExitBitrateThreshold uint                0          0
+# TLV 74.2.1.4 MULPIv3.0-C01 Annex C.1.1.30.2.1.4
+74.2.1.4         DownstreamExitTimeThreshold  ushort              1      65535
+# TLV 74.2.2 MULPIv3.0-C01 Annex C.1.1.30.2.2
+74.2.2           UpstreamActivityDetectionParameters aggregate 
+# TLV 74.2.2.1 MULPIv3.0-C01 Annex C.1.1.30.2.2.1
+74.2.2.1         UpstreamEntryBitrateThreshold uint                0          0
+# TLV 74.2.2.2 MULPIv3.0-C01 Annex C.1.1.30.2.2.2
+74.2.2.2         UpstreamEntryTimeThreshold   ushort              1      65535
+# TLV 74.2.2.3 MULPIv3.0-C01 Annex C.1.1.30.2.2.3
+74.2.2.3         UpstreamExitBitrateThreshold uint                0          0
+# TLV 74.2.2.4 MULPIv3.0-C01 Annex C.1.1.30.2.2.4
+74.2.2.4         UpstreamExitTimeThreshold    ushort              1      65535
+# TLV 74.3 MULPIv3.0-C01 Annex C.1.1.30.3
+74.3             EnergyManagementCyclePeriod  ushort              0          0
+
+# TLV 75 MULPIv3.0-C01 Annex C.1.4.4
+75               EnergyManagement1x1ModeIndicator uchar           0          1
+
+# TLV 76 MULPIv3.0-C01 Annex C.1.20
+76               CMUpstreamAQMDisable         uchar               0          1
+
+# TLV 79 MULPIv3.0-C01 Annex C.3.3
+79               UNIControlEncodings          aggregate 
+# TLV 79.1 MULPIv3.0-C01 Annex C.3.3.1
+79.1             ContextCMIM                  hexstr    
+# TLV 79.2 MULPIv3.0-C01 Annex C.3.3.2
+79.2             UNIAdminStatus               uchar               0          1
+# TLV 79.3 MULPIv3.0-C01 Annex C.3.3.3
+79.3             UNIAutoNegotiationStatus     uchar               0          1
+# TLV 79.4 MULPIv3.0-C01 Annex C.3.3.4
+79.4             UNIOperatingSpeed            uchar               0          6
+# TLV 79.5 MULPIv3.0-C01 Annex C.3.3.5
+79.5             UNIDuplex                    uchar               0          2
+# TLV 79.6 MULPIv3.0-C01 Annex C.3.3.6
+79.6             EEEStatus                    uchar               0          1
+# TLV 79.7 MULPIv3.0-C01 Annex C.3.3.7
+79.7             MaximumFrameSize             ushort              0          0
+# TLV 79.8 MULPIv3.0-C01 Annex C.3.3.8
+79.8             PowerOverEthernetStatus      uchar               0          1
+# TLV 79.9 MULPIv3.0-C01 Annex C.3.3.9
+79.9             MediaType                    uchar               0          1
+
+# TLV 81 MULPIv3.1-I17 Annex C.1.2.21
+81               ManufacturerCVCChain         hexstr    
+# TLV 82 MULPIv3.1-I17 Annex C.1.2.22
+82               CoSignerCVCChain             hexstr    
+
+# TLV 84 MULPIv3.1-I17 Annex C.1.2.23
+84               DiplexerBandEdge             aggregate
+# TLV 84.1 MULPIv3.1-I17 Annex C.1.2.23.1
+# 0:42MHz 1:65MHz 2:85MHz 3:117MHz 4:205MHz
+84.1             DiplexerUpstreamUpperBandEdge   uchar 0 255
+# TLV 84.2 MULPIv3.1-I17 Annex C.1.2.23.2
+# 0:108MHz 1:258MHz
+84.2             DiplexerDownstreamLowerBandEdge uchar 0 255
+# TLV 84.3 MULPIv3.1-I17 Annex C.1.2.23.3
+# 0:1218MHz 1:1794MHz 2:1002MHz
+84.3             DiplexerDownstreamUpperBandEdge uchar 0 255
+
+# TLV 120 ?? MDD IP Mode Override
+120              MimoMode                        uchar 0 4
+
+# TLV 202 eRouter-I17
+202              eRouter                      aggregate 
+202              Erouter                      aggregate 
+# TLV 202.1 eRouter-I17 Annex B.4.2
+202.1            InitializationMode           uchar               0          3
+202.1            ErouterMode                  uchar               0          3
+# TLV 202.2 eRouter-I17 Annex B.4.3
+202.2            TR69ManagementServer         aggregate 
+# TLV 202.2.1 eRouter-I17 Annex B.4.3.1
+202.2.1          EnableCWMP                   uchar               0          1
+# TLV 202.2.2 eRouter-I17 Annex B.4.3.2
+202.2.2          URL                          string              0          0
+# TLV 202.2.3 eRouter-I17 Annex B.4.3.3
+202.2.3          Username                     string              0          0
+# TLV 202.2.4 eRouter-I17 Annex B.4.3.4
+202.2.4          Password                     string              0          0
+# TLV 202.2.5 eRouter-I17 Annex B.4.3.5
+202.2.5          ConnectionRequestUsername    string              0          0
+# TLV 202.2.6 eRouter-I17 Annex B.4.3.6
+202.2.6          ConnectionRequestPassword    string              0          0
+# TLV 202.2.7 eRouter-I17 Annex B.4.3.7
+202.2.7          ACSOverride                  uchar               0          1
+# TLV 202.3 eRouter-I17 Annex B.4.4
+202.3            InitializationModeOverride   uchar               0          1
+# 202.10 eRouter-I17 Annex B.4.10
+202.10           RATransmissionInterval       ushort              3       1800
+# TLV 202.11 eRouter-I17 Annex B.4.8
+202.11           SnmpMibObject                snmp_object
+# TLV 202.42 eRouter-I17 Annex B.4.9
+202.42           TopologyModeEncoding         uchar               1          2
+# TLV 202.43 eRouter-I17 Annex B.4.7
+202.43           VendorSpecific               aggregate 
+# TLV 202.43.8 eRouter-I17 Annex B.4.7.1
+202.43.8         VendorIdentifier             hexstr    
+# TLV 202.53 eRouter-I17 Annex B.4.5
+202.53           SNMPv1v2cCoexistenceConfig   aggregate 
+# TLV 202.53.1 eRouter-I17 Annex B.4.5.1
+202.53.1         SNMPv1v2cCommunityName       string              0          0
+# TLV 202.53.2 eRouter-I17 Annex B.4.5.2
+202.53.2         SNMPv1v2cTransportAddressAccess aggregate 
+# TLV 202.53.2.1 eRouter-I17 Annex B.4.5.2.1
+202.53.2.1       SNMPv1v2cTransportAddress    ip_ip6_port
+# TLV 202.53.2.2 eRouter-I17 Annex B.4.5.2.2
+202.53.2.2       SNMPv1v2cTransportAddressMask ip_ip6_port
+# TLV 202.53.3 eRouter-I17 Annex B.4.5.3
+202.53.3         SNMPv1v2cAccessViewType      uchar               1          2
+# TLV 202.53.4 eRouter-I17 Annex B.4.5.4
+202.53.4         SNMPv1v2cAccessViewName      string              0          0
+# TLV 202.54 eRouter-I17 Annex B.4.6
+202.54           SNMPv3AccessViewConfiguration aggregate 
+# TLV 202.54.1 eRouter-I17 Annex B.4.6.1
+202.54.1         SNMPv3AccessViewName         string              0          0
+# TLV 202.54.2 eRouter-I17 Annex B.4.6.2
+202.54.2         SNMPv3AccessViewSubtree      oid       
+# TLV 202.54.3 eRouter-I17 Annex B.4.6.3
+202.54.3         SNMPv3AccessViewMask         hexstr    
+# TLV 202.54.4 eRouter-I17 Annex B.4.6.4
+202.54.4         SNMPv3AccessViewType         uchar               1          2
+
+# TLV 216 PacketCable 1.x
+216              eMTA                         aggregate
+216              Emta                         aggregate
+# TLV 216.1 PacketCable 1.x 0:off 1:ipv4 2:ipv6 3:both
+216.1            eMTAMode                     uchar               0          3
+216.1            EmtaMode                     uchar               0          3
+# TLV 220 PacketCable 2.0
+220              eDVA                         aggregate
+220              Edva                         aggregate
+# TLV 220.1 PacketCable 2.0 0:off 1:on
+220.1            eDVAMode                     uchar               0          1
+220.1            EdvaMode                     uchar               0          1
+
+# TLV 254 PKT-SP-PROV1.5-I04 Chapter 9.1
+254              MtaConfigDelimiter           uchar               1        255
+# TLV 255 MULPIv3.0-C01 Annex C.1.2.1
+255              /*EndOfDataMkr*/             special

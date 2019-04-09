@@ -214,10 +214,7 @@ Main
 		}
 		DefaultScanTimeout 1800;
 	}
-	SnmpMibObject enterprises.1.2.3.4 String "aaaaaaaaabbbaaaaaaaaaaaaaabcdefghijklmnoprstuvwzabcdefghijklmnoprstuvwyzabcdefghijklmnoprstxxxxxxxaaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaxaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	SnmpMibObject enterprises.1.2.3.0 String "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabcdefg";
-	SnmpMibObject pktcMtaDevEnabled.0 Integer 1; /* true */
-	SnmpMibObject pktcMtaDevRealmOrgName.'CABLE' String "CABLE";
 	VendorSpecific
 	{
 		VendorIdentifier 0x00b0d0;
@@ -245,7 +242,8 @@ Main
 	CoSignerCVCData 0x6da401ce3d55964c188dba201b2726ad5963e9af336790a03e7bc5b3bf33de57c44afdc4c6ef4d800463d7fc1e6b8c31d63d1d9a18750c8ae6c34ec3ac41280098bcb6c7a71f050a0153cc21d781f35a92f8dcad900c95015f66b4fb337408b5cc02de90450fb7d34a4c717430e0170b87356c641a42448297e9ccb76d5b7bbd601ba2fa7703ce3dd4ae038a4f67a5b733d8f1226a452d46950309e0e5a3a70a79ee593858d4d09b8437ab4577149afdccbab17d54a6a84cef9dd57be0c21e5664c2c3bc53836a2f84358cfae1f753a71c6263fc5609458b27728e317e406d6bcae820613d2ec5134b85a4e6ee10b34ec72f2b08663538d4c5cb17cf87e3;
 	CoSignerCVCData 0x1d994def;
 	MaxCPE 127;
-	/* CmMic 8cc4938f0c9f11f71a5b7fc51573a45f; */
-	/* CmtsMic e76d51560b82faf1ff9726418e9e53d7; */
+	/* CmMic af0dfb2083f2578c1beb7878a376376d; */
+	/* CmtsMic 4bfa6f9a6395f348934cf908f9330804; */
 	/*EndOfDataMkr*/
+	/*Pad*/
 }

@@ -39,13 +39,16 @@
 
 #include "docsis.h"
 #include "docsis_globals.h"
-#include "docsis_symtable.h"
+#include "docsis_common.h"
+#include "docsis_decode.h"
+#include "docsis_encode.h"
 #include "ethermac.h"
 #include "md5.h"
 #include "sha1.h"
 
 struct tlv *global_tlvtree_head;
 symbol_type *global_symtable;
+size_t global_symtable_nsyms;
 unsigned int nohash = 0;
 unsigned int dialplan = 0;
 
@@ -303,7 +306,7 @@ main (int argc, char *argv[])
 {
   unsigned char key[65];
   FILE *kf;
-  char *config_file=NULL, *key_file=NULL, *output_file=NULL, *extension_string=NULL, *custom_mibs=NULL;
+  char *config_file=NULL, *key_file=NULL, *output_file=NULL, *extension_string=NULL, *custom_mibs=NULL, *parsedef_file=NULL;
   unsigned int keylen = 0;
   unsigned int encode_docsis = FALSE, decode_bin = FALSE, hash = 0;
   int i;
@@ -314,6 +317,17 @@ main (int argc, char *argv[])
 
     if (!argc) {
       usage();
+    }
+
+    if (!strcmp (argv[0], "-f")) {
+      if (argc < 2 ) {
+        usage();
+      }
+
+      parsedef_file=argv[1];
+
+      argc--; argv++;
+      continue;
     }
 
     /* the initial command-line parameters are flags / modifiers */
@@ -447,7 +461,13 @@ main (int argc, char *argv[])
       fclose(kf);
     }
 
-  init_global_symtable ();
+  if (parsedef_file) {
+	 (void)parsedef_loadfile(parsedef_file);
+  } else {
+	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.def");
+	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.local.def");
+  }
+  (void)parsedef_finish(); /* fill global_symtable */
   setup_mib_flags(resolve_oids,custom_mibs);
 
   if (decode_bin)
@@ -531,7 +551,7 @@ int encode_one_file ( char *input_file, char *output_file,
 	/* leave some room for CM MIC, CMTS MIC, pad, and a HUGE PC20 dialplan */
   buflen = tlvtreelen (global_tlvtree_head);
   buffer = (unsigned char *) malloc ( buflen + 255 + 8192 );
-  buflen = flatten_tlvsubtree(buffer, 0, global_tlvtree_head);
+  buflen = flatten_tlvsubtree(buffer, 0, global_tlvtree_head, !encode_docsis);
 
 
 #ifdef DEBUG
@@ -583,20 +603,6 @@ int encode_one_file ( char *input_file, char *output_file,
   return 0;
 
   /*free(global_tlvlist->tlvlist); free(global_tlvlist); */ /* TODO free tree */
-}
-
-int
-init_global_symtable (void)
-{
-  global_symtable =
-    (symbol_type *) malloc (sizeof (symbol_type) * NUM_IDENTIFIERS);
-  if (global_symtable == NULL)
-    {
-      fprintf(stderr, "Error allocating memory\n");
-      exit (255);
-    }
-  memcpy (global_symtable, symtable, sizeof (symbol_type) * NUM_IDENTIFIERS);
-  return 1;
 }
 
 void
@@ -652,7 +658,17 @@ setup_mib_flags(int resolve_oids, char *custom_mibs) {
   /* DOCSIS vendors are notorious for supplying MIBs with invalid syntax */
   netsnmp_ds_set_boolean(NETSNMP_DS_LIBRARY_ID, NETSNMP_DS_LIB_MIB_PARSE_LABEL, 1);
 
-#ifdef HAVE_NETSNMP_INIT_MIB
+#ifdef HAVE_INIT_SNMP_FUNCTIONS
+  if (getenv("MIBDIRS")) {
+	 netsnmp_init_mib();
+  } else {
+	 /* load mibs using snmp.conf */
+	 register_mib_handlers();
+	 read_premib_configs();
+	 netsnmp_init_mib();
+	 read_configs();
+  }
+#elif defined(HAVE_NETSNMP_INIT_MIB)
   netsnmp_init_mib ();
 #else
   init_mib ();

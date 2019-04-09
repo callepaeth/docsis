@@ -47,7 +47,13 @@
 
 /*id  "identifier" docsis_code parent_id encode_func decode_func low_limit high_limit */
 
-symbol_type symtable[NUM_IDENTIFIERS] =  {
+#ifndef USE_PREDEFINED_SYMTABLE
+symbol_type symtable[] =  {
+#include "syms.h"
+};
+
+#else
+symbol_type symtable[] =  {
 { 0,      "/* Pad */",                         0,      0,      (encode_nothing),        (decode_special),        0,           0             },
 { 1,      "DownstreamFrequency",               1,      0,      (encode_uint),           (decode_uint),           88000000,    1008000000    }, /* TLV 1 MULPIv3.0-I24 Annex C.1.1.1 */
 { 2,      "UpstreamChannelId",                 2,      0,      (encode_uchar),          (decode_uchar),          0,           255           }, /* TLV 2 MULPIv3.0-I24 Annex C.1.1.2 */
@@ -1483,5 +1489,6 @@ symbol_type symtable[NUM_IDENTIFIERS] =  {
 { 157,    "MtaConfigDelimiter",                254,    0,      (encode_uchar),          (decode_uchar),          1,           255           }, /* TLV 254 PKT-SP-PROV1.5-I04 Chapter 9.1 */
 { 999,    "/*EndOfDataMkr*/",                  255,    0,      (encode_nothing),        (decode_special),        0,           0             }  /* TLV 255 MULPIv3.0-I24 Annex C.1.2.1 */
 };
+#endif
 
 #endif /* _DOCSIS_SYMTABLE_H */

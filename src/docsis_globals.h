@@ -26,6 +26,7 @@
 
 extern struct tlv *global_tlvtree_head;
 extern symbol_type *global_symtable;
+extern size_t global_symtable_nsyms;
 extern unsigned int line;	/* defined in docsis_lex.l */
 extern unsigned int nohash;
 

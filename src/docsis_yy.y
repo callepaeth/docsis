@@ -558,7 +558,7 @@ assemble_tlv_in_parent (int tlvcode, struct tlv *child_tlv)
  * the parsed values into an output "binary".
  */
 
-unsigned int flatten_tlvsubtree ( unsigned char *buf, unsigned int used_size, struct tlv *tlv)
+unsigned int flatten_tlvsubtree ( unsigned char *buf, unsigned int used_size, struct tlv *tlv, int is_mta)
 {
   struct tlv *tlvptr;
   unsigned int rsize;
@@ -575,7 +575,7 @@ unsigned int flatten_tlvsubtree ( unsigned char *buf, unsigned int used_size, st
   for (tlvptr=tlv; tlvptr; tlvptr=tlvptr->next_sibling ) {
 	if (tlvptr->first_child )  { /* Sub-Settings */
 		/* we don't know the size yet, so we delay writing type & length */
-		rsize = flatten_tlvsubtree(buf, (cp-buf)+2, tlvptr->first_child);
+		rsize = flatten_tlvsubtree(buf, (cp-buf)+2, tlvptr->first_child, is_mta);
 		if (rsize > 255) {
 			fprintf(stderr, "Warning: at line %d: aggregate size of settings block larger than 255, skipping\n", line);
 			continue;
@@ -590,7 +590,7 @@ unsigned int flatten_tlvsubtree ( unsigned char *buf, unsigned int used_size, st
 			if (tlvptr->tlv_len > 0)
 				memcpy ( cp, tlvptr->tlv_value, tlvptr->tlv_len );
   	     		cp = cp + tlvptr->tlv_len;
-		} else {
+		} else if (is_mta) {
 			/* convert TLV11 to TLV64 */
 			if (tlvptr->docs_code == 11) {
 				*cp = 64; cp++;
@@ -603,6 +603,9 @@ unsigned int flatten_tlvsubtree ( unsigned char *buf, unsigned int used_size, st
 				fprintf(stderr, "Warning at line %d: Non-SnmpMibObject TLV larger than 255... skipping.\n", line);
 				continue;
 			}
+		} else {
+			fprintf(stderr, "Warning at line %d: TLV%d larger than 255 (%d)... skipping.\n", line, tlvptr->docs_code, tlvptr->tlv_len);
+			continue;
 		}
 	}
   return (unsigned int) (cp - buf - used_size); /* return the number of bytes encoded this time  */

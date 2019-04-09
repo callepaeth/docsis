@@ -171,7 +171,7 @@ encode_vbind (char *oid_string, char oid_asntype, union t_val *value,
 	}
       else if (oid_asntype == 's')
 	{
-	  strncpy ((char *) buf, value->strval, SPRINT_MAX_LEN);
+	  snprintf((char *) buf, SPRINT_MAX_LEN, "%s", value->strval);
 	  len = strlen ((char *) buf);
 	}
       else if (oid_asntype == 'x')

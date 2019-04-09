@@ -107,6 +107,20 @@ AC_LINK_IFELSE(
    AC_DEFINE_UNQUOTED(HAVE_NETSNMP_INIT_MIB, 1, [Defines if your net-snmp has the netsnmp_init_mib function])],
   [AC_MSG_RESULT(no)]
 )
+AC_MSG_CHECKING([for init_snmp])
+AC_LINK_IFELSE(
+  [AC_LANG_PROGRAM([[#include <net-snmp/net-snmp-config.h>
+                     #include <net-snmp/net-snmp-includes.h>]],
+                   [[
+                     register_mib_handlers();
+                     read_premib_configs();
+                     netsnmp_init_mib();
+                     read_configs();
+				   ]])],
+  [AC_MSG_RESULT(yes)
+   AC_DEFINE_UNQUOTED(HAVE_INIT_SNMP_FUNCTIONS, 1, [Defines if your net-snmp has the init_snmp function])],
+  [AC_MSG_RESULT(no)]
+)
 CFLAGS="$orig_CFLAGS"
 LIBS="$orig_LIBS"
 

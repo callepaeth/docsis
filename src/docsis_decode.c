@@ -42,9 +42,9 @@ unsigned int is_vspecific = FALSE;
 struct symbol_entry *
 find_symbol_by_code_and_pid (unsigned char code, unsigned int pid)
 {
- int i;
+ size_t i;
 
- for ( i=0; i<NUM_IDENTIFIERS; i++) {
+ for ( i=0; i<global_symtable_nsyms; i++) {
         if (global_symtable[i].docsis_code == code && global_symtable[i].parent_id == pid) {
                 return &global_symtable[i];
         }

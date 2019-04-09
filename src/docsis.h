@@ -84,7 +84,7 @@ struct tlv *assemble_tlv_in_parent (int tlvcode,
 					  struct tlv *tlv);
 /* flatten a tlvlist to its final binary form */
 unsigned int flatten_tlvlist (unsigned char *buf, struct tlv_list *list);
-unsigned int flatten_tlvsubtree (unsigned char *buf, unsigned int used_size, struct tlv *tlvhead);
+unsigned int flatten_tlvsubtree (unsigned char *buf, unsigned int used_size, struct tlv *tlvhead, int is_mta);
 
 /* Find the symbol_entry given the symbol identifier -> docsis_lex.l  */
 struct symbol_entry *find_symbol_by_name (char *sym_str);
@@ -92,7 +92,6 @@ struct symbol_entry *find_symbol_by_name (char *sym_str);
 void hmac_md5 (unsigned char *text, int text_len, unsigned char *key,
 	       size_t key_len, unsigned char *digest);
 void md5_print_digest (unsigned char *digest);
-int init_global_symtable (void);
 unsigned int tlvtreelen  (struct tlv *tlv);
 int parse_config_file (char *file, struct tlv **parse_tree_result);
 int yylex (void);
@@ -100,5 +99,8 @@ void decode_file (char *file);
 int encode_one_file (char *input_file, char *output_file,
 		       unsigned char *key, unsigned int keylen, int encode_docsis, unsigned int hash);
 char *get_output_name (char *input_path, char *new_extension);
+
+int parsedef_loadfile(const char *fn);
+int parsedef_finish(void);
 
 #endif /* __DOCSIS_H */
