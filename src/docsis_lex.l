@@ -148,8 +148,8 @@ TlvType			{ return T_TLV_TYPE;		}
 <COMMENT>\/[*]+	{ fprintf(stderr, "line %d: comment-in-comment not supported", line) ; }
 <COMMENT>[*]+\/	{ BEGIN 0; }
 
-[0-9]+	 { yylval.intval=atoi(yytext);return T_INTEGER; }
--[0-9]+	 { yylval.intval=atoi(yytext);return T_INTEGER; }
+[0-9]+	 { yylval.intval=strtoul(yytext, NULL, 10);return T_INTEGER; }
+-[0-9]+	 { yylval.intval=strtol(yytext, NULL, 10);return T_INTEGER; }
 [ \t]+	 ;
 \r\n	 { line++; }
 \n	 { line++; }
