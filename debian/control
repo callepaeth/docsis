@@ -1,5 +1,5 @@
 Source: docsis
-Section: unknown
+Section: net
 Priority: optional
 Maintainer: Carsten Paeth <callepaeth@github.com>
 Build-Depends: debhelper (>= 9), autotools-dev
