@@ -1,3 +1,9 @@
+docsis (0.9.8.1-1) unstable; urgency=medium
+
+ * No error message on non existing /etc/docsis/docsis.local.def.
+
+ -- Carsten Paeth <callepaeth@github.com>  Tue, 23 Apr 2019 12:00:18 +0200
+
 docsis (0.9.8.1) unstable; urgency=medium
 
   * Changed to use TLV definitions from /etc/docsis/docsis.def

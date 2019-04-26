@@ -120,11 +120,7 @@ add_cmts_mic (unsigned char *tlvbuf, unsigned int tlvbuflen,
 	    }
 	  else
 	    {
-	      if ( cp[0] == 64 ) {
-		cp = cp + (size_t) ntohs(*((unsigned short *)(cp+1))) + 3;
-	      } else {
-	      	cp = cp + cp[1] + 2;
-	      }
+	      cp = cp + cp[1] + 2;
 	    }
 	}
     }
@@ -462,10 +458,10 @@ main (int argc, char *argv[])
     }
 
   if (parsedef_file) {
-	 (void)parsedef_loadfile(parsedef_file);
+	 (void)parsedef_loadfile(parsedef_file, 0);
   } else {
-	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.def");
-	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.local.def");
+	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.def", 0);
+	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.local.def", 1);
   }
   (void)parsedef_finish(); /* fill global_symtable */
   setup_mib_flags(resolve_oids,custom_mibs);

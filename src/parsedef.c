@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <memory.h>
+#include <errno.h>
 
 #include "docsis.h"
 #include "docsis_globals.h"
@@ -268,7 +269,7 @@ static int add_entry(struct tlvid *tid, char *name, struct typemap *tp,
 
 /*1	DownstreamFrequency	uint		88000000	860000000*/
 
-int parsedef_loadfile(const char *fn)
+int parsedef_loadfile(const char *fn, int optional)
 {
    int errcount = 0;
    int line = 0;
@@ -276,6 +277,8 @@ int parsedef_loadfile(const char *fn)
    FILE *infp;
 
    if ((infp = fopen(fn, "r")) == 0) {
+      if (optional && errno == ENOENT)
+         return 0;
       fprintf(stderr, "%s: ", fn);
       perror("open");
       return -1;

@@ -100,7 +100,7 @@ int encode_one_file (char *input_file, char *output_file,
 		       unsigned char *key, unsigned int keylen, int encode_docsis, unsigned int hash);
 char *get_output_name (char *input_path, char *new_extension);
 
-int parsedef_loadfile(const char *fn);
+int parsedef_loadfile(const char *fn, int optional);
 int parsedef_finish(void);
 
 #endif /* __DOCSIS_H */

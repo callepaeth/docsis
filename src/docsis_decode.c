@@ -56,7 +56,7 @@ void decode_uint (unsigned char *tlvbuf, struct symbol_entry *sym, size_t length
 {
   static unsigned int helper;
   if (length != sizeof(unsigned int) ) {
-	fprintf(stderr, "u_int length mismatch\n");
+	fprintf(stderr, "u_int length mismatch (%s)\n", sym->sym_ident);
 	exit(-45);
   }
   memset( &helper, 0, sizeof(unsigned int));
