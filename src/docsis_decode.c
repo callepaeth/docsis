@@ -54,12 +54,13 @@ find_symbol_by_code_and_pid (unsigned char code, unsigned int pid)
 
 void decode_uint (unsigned char *tlvbuf, struct symbol_entry *sym, size_t length)
 {
-  static unsigned int helper;
-  if (length != sizeof(unsigned int) ) {
-	fprintf(stderr, "u_int length mismatch (%s)\n", sym->sym_ident);
+  static uint32_t helper;
+  if (length != sizeof(uint32_t) ) {
+	fprintf(stderr, "u_int length mismatch (%s), length is %zd\n",
+	                sym->sym_ident, length);
 	exit(-45);
   }
-  memset( &helper, 0, sizeof(unsigned int));
+  memset( &helper, 0, sizeof(uint32_t));
   memcpy( &helper, tlvbuf, length);
 
   printf("%s %u;\n", sym->sym_ident, ntohl(helper));
@@ -72,8 +73,8 @@ void decode_uint24 (unsigned char *tlvbuf, struct symbol_entry *sym, size_t leng
 
 void decode_ushort (unsigned char *tlvbuf, symbol_type *sym, size_t length)
 {
-  static unsigned short helper;
-  if (length != sizeof(unsigned short) ) {
+  static uint16_t helper;
+  if (length != sizeof(uint16_t) ) {
         fprintf(stderr, "u_short length mismatch\n");
         exit(-45);
   }
@@ -440,7 +441,7 @@ void decode_ushort_list (unsigned char *tlvbuf, symbol_type *sym, size_t length)
 	printf("/* -- warning: illegal length of buffer --*/");
 
  for(i=0; i<len; i=i+2) {
-        printf("%hu", ntohs( (* (unsigned short *) &helper[i])) );
+        printf("%hu", ntohs( (* (uint16_t *) &helper[i])) );
 	if (i< len-2) printf(",");
  }
  printf(";\n");
