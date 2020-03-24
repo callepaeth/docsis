@@ -115,11 +115,11 @@
 5.41             MPLSClassificationSupport    hexstr    
 # TLV 5.42 MULPIv3.0-C01 Annex C.1.3.1.42
 5.42             DONUCapabilitiesEncoding     hexstr    
-# TLV 5.43 MULPIv3.0-C01 Annex C.1.3.1.43
+# TLV 5.44 MULPIv3.0-C01 Annex C.1.3.1.43
 5.44             EnergyManagementCapabilities hexstr    
-# TLV 5.44 MULPIv3.0-C01 Annex C.1.3.1.44
+# TLV 5.45 MULPIv3.0-C01 Annex C.1.3.1.44
 5.45             CDOCSISCapabilityEncoding    hexstr    
-# TLV 5.45 MULPIv3.0-C01 Annex C.1.3.1.45
+# TLV 5.46 MULPIv3.0-C01 Annex C.1.3.1.45
 5.46             CMSTATUSACK                  uchar               0          1
 
 # TLV 6 MULPIv3.0-C01 Annex C.1.1.5
@@ -249,22 +249,26 @@
 22.17            MPLSClassificationEncoding   aggregate 
 22.17.1          MPLSTCbits                   hexstr    
 22.17.2          MPLSLabel                    hexstr    
-22.43            VendorSpecific               aggregate 
+22.43            VendorSpecific               vspecific 
 22.43.1          CMLoadBalancingPolicyID      uint                0          0
 22.43.2          CMLoadBalancingPriority      uint                0          0
 22.43.3          CMLoadBalancingGroupID       uint                0          0
 22.43.4          CMRangingClassIDExtension    ushort              0          0
 22.43.5          L2VPNEncoding                aggregate 
 22.43.5.1        VPNIdentifier                hexstr    
+
+
+22.43.5.1        VPNId                        hexstr    
 22.43.5.2        NSIEncapsulation             aggregate 
 22.43.5.2.1      ServiceMultiplexingValueOther lenzero   
 22.43.5.2.2      NSIEncapsulationSingleQTag   ushort              0       4096
 22.43.5.2.3      NSIEncapsulationDualQTag     dual_qtag 
+22.43.5.2.4      MPLSPeerIpAddress            char_ip_ip6
 22.43.5.2.4      ServiceMultiplexingValueMPLSPW aggregate 
-22.43.5.2.4.1    MPLSPseudowireID             uint                0          0
+22.43.5.2.4.1    MPLSPseudowireID             uint
 22.43.5.2.4.2    MPLSPeerIpAddress            char_ip_ip6
-22.43.5.2.4.3    MPLSPseudowireType           uchar               0          0
-22.43.5.2.4.4    MPLSBackupPseudowireID       uint                0          0
+22.43.5.2.4.3    MPLSPseudowireType           uchar
+22.43.5.2.4.4    MPLSBackupPseudowireID       uint
 22.43.5.2.4.5    MPLSBackupPeerIpAddress      char_ip_ip6
 22.43.5.2.5      ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
 22.43.5.2.6      IEEE8021ahEncapsulation      aggregate 
@@ -347,7 +351,7 @@
 22.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
 22.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 22.43.5.26       L2VPNDSID                    uint24    
-22.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+22.43.5.43       VendorSpecificL2VPNSubtype   vspecific 
 22.43.5.43.8     VendorIdentifier             hexstr    
 22.43.5.43.36    MPLSType                     uchar               1        255
 22.43.5.43.38    MPLSVCID                     uint                1 4294967295
@@ -451,7 +455,7 @@
 23.17            MPLSClassificationEncoding   aggregate 
 23.17.1          MPLSTCbits                   hexstr    
 23.17.2          MPLSLabel                    hexstr    
-23.43            VendorSpecific               aggregate 
+23.43            VendorSpecific               vspecific 
 23.43.1          CMLoadBalancingPolicyID      uint                0          0
 23.43.2          CMLoadBalancingPriority      uint                0          0
 23.43.3          CMLoadBalancingGroupID       uint                0          0
@@ -549,7 +553,7 @@
 23.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
 23.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 23.43.5.26       L2VPNDSID                    uint24    
-23.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+23.43.5.43       VendorSpecificL2VPNSubtype   vspecific 
 23.43.5.43.8     VendorIdentifier             hexstr    
 23.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
 23.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
@@ -621,9 +625,9 @@
 24.37            UpstreamMESPReference        ushort              1      65535
 24.40            AQMEncodings                 aggregate 
 24.40.1          SFAQMDisable                 uchar               0          1
-24.40.2          SFAQMLatencyTarget           uchar               0          1
+24.40.2          SFAQMLatencyTarget           uchar               0          255
 24.41            DataRateUnitSetting          uchar               0          3
-24.43            VendorSpecific               aggregate 
+24.43            VendorSpecific               vspecific 
 24.43.1          CMLoadBalancingPolicyID      uint                0          0
 24.43.2          CMLoadBalancingPriority      uint                0          0
 24.43.3          CMLoadBalancingGroupID       uint                0          0
@@ -721,7 +725,7 @@
 24.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
 24.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 24.43.5.26       L2VPNDSID                    uint24    
-24.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+24.43.5.43       VendorSpecificL2VPNSubtype   vspecific 
 24.43.5.43.8     VendorIdentifier             hexstr    
 24.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
 24.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
@@ -784,9 +788,9 @@
 25.37            DownstreamMESPReference      ushort              1      65535
 25.40            AQMEncodings                 aggregate 
 25.40.1          SFAQMDisable                 uchar               0          1
-25.40.2          SFAQMLatencyTarget           uchar               0          1
+25.40.2          SFAQMLatencyTarget           uchar               0          255
 25.41            DataRateUnitSetting          uchar               0          3
-25.43            VendorSpecific               aggregate 
+25.43            VendorSpecific               vspecific 
 25.43.1          CMLoadBalancingPolicyID      uint                0          0
 25.43.2          CMLoadBalancingPriority      uint                0          0
 25.43.3          CMLoadBalancingGroupID       uint                0          0
@@ -884,7 +888,7 @@
 25.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
 25.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 25.43.5.26       L2VPNDSID                    uint24    
-25.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+25.43.5.43       VendorSpecificL2VPNSubtype   vspecific 
 25.43.5.43.8     VendorIdentifier             hexstr    
 25.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
 25.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
@@ -931,7 +935,7 @@
 26.10            PHSSize                      uchar               1        255
 26.11            PHSVerify                    uchar               0          1
 26.13            PHSDBCAction                 uchar               0          1
-26.43            VendorSpecific               aggregate 
+26.43            VendorSpecific               vspecific 
 26.43.1          CMLoadBalancingPolicyID      uint                0          0
 26.43.2          CMLoadBalancingPriority      uint                0          0
 26.43.3          CMLoadBalancingGroupID       uint                0          0
@@ -1029,7 +1033,7 @@
 26.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
 26.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 26.43.5.26       L2VPNDSID                    uint24    
-26.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+26.43.5.43       VendorSpecificL2VPNSubtype   vspecific 
 26.43.5.43.8     VendorIdentifier             hexstr    
 26.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
 26.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
@@ -1154,16 +1158,19 @@
 # TLV 43.5 MULPIv3.0-C01 Annex C.1.1.18.1.5
 43.5             L2VPNEncoding                aggregate 
 43.5.1           VPNIdentifier                hexstr    
+# Cisco L2VPN:
+# https://www.cisco.com/c/en/us/td/docs/cable/cmts/config_guide/b_cisco_cmts_layer_2_vpn_features/b_cisco_cmts_layer_2_vpn_features_chapter_0100.html#con_1165215
 43.5.2           NSIEncapsulation             aggregate 
 43.5.2.1         ServiceMultiplexingValueOther lenzero   
 43.5.2.2         NSIEncapsulationSingleQTag   ushort              0       4096
 43.5.2.3         NSIEncapsulationDualQTag     dual_qtag 
-43.5.2.4         ServiceMultiplexingValueMPLSPW aggregate 
-43.5.2.4.1       MPLSPseudowireID             uint                0          0
-43.5.2.4.2       MPLSPeerIpAddress            char_ip_ip6
-43.5.2.4.3       MPLSPseudowireType           uchar               0          0
-43.5.2.4.4       MPLSBackupPseudowireID       uint                0          0
-43.5.2.4.5       MPLSBackupPeerIpAddress      char_ip_ip6
+43.5.2.4         MPLSPeerIpAddress            char_ip_ip6
+#43.5.2.4         ServiceMultiplexingValueMPLSPW aggregate 
+#43.5.2.4.1       MPLSPseudowireID             uint                0          0
+#43.5.2.4.2       MPLSPeerIpAddress            char_ip_ip6
+#43.5.2.4.3       MPLSPseudowireType           uchar               0          0
+#43.5.2.4.4       MPLSBackupPseudowireID       uint                0          0
+#43.5.2.4.5       MPLSBackupPeerIpAddress      char_ip_ip6
 43.5.2.5         ServiceMultiplexingValueL2TPv3Peer char_ip_ip6
 43.5.2.6         IEEE8021ahEncapsulation      aggregate 
 43.5.2.6.1       ITCIEncapsulation            hexstr    
@@ -1245,11 +1252,20 @@
 43.5.24.4.2.1    FrameLossMeasurementEnable   uchar               0          1
 43.5.24.4.2.2    FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 43.5.26          L2VPNDSID                    uint24    
-43.5.43          VendorSpecificL2VPNSubtype   aggregate 
+43.5.43          VendorSpecificL2VPNSubtype   vspecific 
 43.5.43.8        VendorIdentifier             hexstr    
+# https://www.cisco.com/c/en/us/td/docs/cable/cbr/configuration/guide/b_layer2_layer3_vpn_xe16_8/mpls_pseudowire_for_cable_l2vpn.html
 43.5.43.36       MPLSType                     uchar               1        255
 43.5.43.38       MPLSVCID                     uint                1 4294967295
 43.5.43.39       MPLSPeername                 string
+45.5.43.40       MLPSBackup                   aggregate
+43.5.43.40.1     MLPSBackupPeerIPv4Address    ip
+43.5.43.40.2     MPLSBackupPeername           string              0        255
+43.5.43.40.3     MPLSBackupVCID               uint                1 4294967295
+43.5.43.40.4     MPLSBackupPriority           uchar
+43.5.43.41       MPLSBackupEnableDelay        uchar
+43.5.43.42       MPLSBackupDisableDelay       uchar
+43.5.43.43       MPLSBackupDisableNever       uchar
 
 # TLV 43.6 MULPIv3.0-C01 Annex C.1.1.18.1.6
 43.6             ExtendedCMTSMICConfiguration aggregate 
@@ -1321,6 +1337,7 @@
 45               DUTFiltering                 aggregate 
 # TLV 45.1 L2VPN-I13 Annex B.2.1
 45.1             DUTControl                   uchar               0          1
+45.1             Enable                       uchar               0          1
 # TLV 45.2 L2VPN-I13 Annex B.2.2
 45.2             DUTCMIM                      hexstr    
 
@@ -1435,7 +1452,7 @@
 60.17            MPLSClassificationEncoding   aggregate 
 60.17.1          MPLSTCbits                   hexstr    
 60.17.2          MPLSLabel                    hexstr    
-60.43            VendorSpecific               aggregate 
+60.43            VendorSpecific               vspecific 
 60.43.1          CMLoadBalancingPolicyID      uint                0          0
 60.43.2          CMLoadBalancingPriority      uint                0          0
 60.43.3          CMLoadBalancingGroupID       uint                0          0
@@ -1533,7 +1550,7 @@
 60.43.5.24.4.2.1 FrameLossMeasurementEnable   uchar               0          1
 60.43.5.24.4.2.2 FrameLossMeasurementTransmissionPeriodicity ushort              0          0
 60.43.5.26       L2VPNDSID                    uint24    
-60.43.5.43       VendorSpecificL2VPNSubtype   aggregate 
+60.43.5.43       VendorSpecificL2VPNSubtype   vspecific 
 60.43.5.43.8     VendorIdentifier             hexstr    
 60.43.6          ExtendedCMTSMICConfigurationSetting aggregate 
 60.43.6.1        ExtendedCMTSMICHMACtype      uchar               0          0
@@ -1732,8 +1749,10 @@
 202.1            InitializationMode           uchar               0          3
 202.1            ErouterMode                  uchar               0          3
 # TLV 202.2 eRouter-I17 Annex B.4.3
+202.2            tr069                        aggregate 
 202.2            TR69ManagementServer         aggregate 
 # TLV 202.2.1 eRouter-I17 Annex B.4.3.1
+202.2.1          enabled                      uchar               0          1
 202.2.1          EnableCWMP                   uchar               0          1
 # TLV 202.2.2 eRouter-I17 Annex B.4.3.2
 202.2.2          URL                          string              0          0
@@ -1756,9 +1775,10 @@
 # TLV 202.42 eRouter-I17 Annex B.4.9
 202.42           TopologyModeEncoding         uchar               1          2
 # TLV 202.43 eRouter-I17 Annex B.4.7
-202.43           VendorSpecific               aggregate 
+202.43           VendorSpecific               vspecific 
 # TLV 202.43.8 eRouter-I17 Annex B.4.7.1
 202.43.8         VendorIdentifier             hexstr    
+
 # TLV 202.53 eRouter-I17 Annex B.4.5
 202.53           SNMPv1v2cCoexistenceConfig   aggregate 
 # TLV 202.53.1 eRouter-I17 Annex B.4.5.1

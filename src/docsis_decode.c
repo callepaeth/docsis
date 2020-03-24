@@ -40,7 +40,7 @@
 unsigned int is_vspecific = FALSE;
 
 struct symbol_entry *
-find_symbol_by_code_and_pid (unsigned char code, unsigned int pid)
+find_symbol_by_code_and_pid (unsigned long code, unsigned int pid)
 {
  size_t i;
 
@@ -542,6 +542,9 @@ void decode_vspecific (unsigned char *tlvbuf, symbol_type *sym, size_t length )
   symbol_type *first_symbol;
   unsigned int tlv_llen = 1; /* length of "Length" encoding of current TLV */
   size_t tlv_vlen; 	/* length of "Value" encoding of current TLV */
+  unsigned long vendor_docs_code = 0;
+  symbol_type *oui_symbol = NULL;
+  symbol_type *std_symbol = NULL;
 
   /*  cp = tlvbuf+1+tlv_llen; */ /* skip type,len of parent TLV */
   cp = tlvbuf;
@@ -565,8 +568,11 @@ void decode_vspecific (unsigned char *tlvbuf, symbol_type *sym, size_t length )
 	/* Symbol found ... check if it's the right one */
 		if (!strncmp (first_symbol->sym_ident, "VendorIdentifier", 16))
 		{
+			unsigned char *sub = cp+1+tlv_llen;
   			__docsis_indent(INDENT_NOOP, TRUE);
 	                first_symbol->decode_func(cp+1+tlv_llen, first_symbol, tlv_vlen);
+                        vendor_docs_code = DOCSIS_OID_BIT | (sub[0] << 16) | (sub[1] << 8) | (sub[2] << 0);
+                        is_vspecific = FALSE;
 		}
 		else
 		{
@@ -577,14 +583,34 @@ void decode_vspecific (unsigned char *tlvbuf, symbol_type *sym, size_t length )
 		}
         }
 
+  if (vendor_docs_code) {
+     oui_symbol = find_symbol_by_code_and_pid (vendor_docs_code, sym->id);
+     if (vendor_docs_code == (DOCSIS_OID_BIT | 0xffffff))
+        std_symbol = sym;
+  }
+
   cp = (unsigned char*) cp + 1 + tlv_llen + tlv_vlen; /* skip type, length, value */
 
   while ( (unsigned int) (cp - tlvbuf) < (unsigned int) length ) {
+        symbol_type *current_symbol = NULL;
 
-  __docsis_indent(INDENT_NOOP, TRUE);
+        if (vendor_docs_code) {
+	   if (oui_symbol) {
+              current_symbol = find_symbol_by_code_and_pid (cp[0], oui_symbol->id);
+	   }
+           if (current_symbol == NULL && std_symbol) {
+              current_symbol = find_symbol_by_code_and_pid (cp[0], std_symbol->id);
+           }
+        }
 
  	tlv_vlen = (size_t) cp[1];
-        decode_unknown(cp, NULL, tlv_vlen );
+
+        __docsis_indent(INDENT_NOOP, TRUE);
+        if (current_symbol) {
+      	   current_symbol->decode_func (cp+1+tlv_llen, current_symbol, tlv_vlen);
+        } else {
+           decode_unknown(cp, NULL, tlv_vlen );
+        }
         cp = (unsigned char*) cp + 1 + tlv_llen + tlv_vlen; /* skip type, length, value */
   }
 

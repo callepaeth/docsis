@@ -79,6 +79,8 @@ SnmpWriteControl	{ yylval.symptr=find_symbol_by_name(yytext);return T_IDENT_SNMP
 SnmpMibObject		{ yylval.symptr=find_symbol_by_name(yytext);return T_IDENT_SNMPSET; }
 ManufacturerCVC		{ yylval.symptr=find_symbol_by_name(yytext);return T_IDENT_CVC; }
 CoSignerCVC		{ yylval.symptr=find_symbol_by_name(yytext);return T_IDENT_CVC; }
+VendorSpecific		{ yylval.symptr=find_symbol_by_name(yytext);return T_VENDORSPECIFIC; }
+VendorIdentifier        { yylval.symptr=find_symbol_by_name(yytext);return T_VENDORIDENTIFIER; }
 Integer			{ return T_ASNTYPE_INT; 	}
 Unsigned32		{ return T_ASNTYPE_UINT; 	}
 Short			{ return T_ASNTYPE_SHORT;       }

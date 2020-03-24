@@ -101,6 +101,6 @@ int encode_one_file (char *input_file, char *output_file,
 char *get_output_name (char *input_path, char *new_extension);
 
 int parsedef_loadfile(const char *fn, int optional);
-int parsedef_finish(void);
+int parsedef_finish(int show_parsedef);
 
 #endif /* __DOCSIS_H */

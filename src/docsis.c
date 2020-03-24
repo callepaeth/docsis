@@ -258,13 +258,15 @@ usage ()
   fprintf(stderr, "DOCSIS Configuration File creator, version %s\n", VERSION);
   fprintf(stderr, "Copyright (c) 1999,2000,2001 Cornel Ciocirlan, ctrl@users.sourceforge.net\n");
   fprintf(stderr, "Copyright (c) 2002,2003,2004,2005 Evvolve Media SRL, docsis@evvolve.com\n");
-  fprintf(stderr, "Copyright (c) 2014 - 2015 Adrian Simionov, daniel.simionov@gmail.com\n\n");
+  fprintf(stderr, "Copyright (c) 2014 - 2015 Adrian Simionov, daniel.simionov@gmail.com\n");
+  fprintf(stderr, "Copyright (c) 2019 - 2020 Carsten Paeth, callepaeth@github.com\n\n");
 
   fprintf(stderr, "To encode a cable modem configuration file: \n\tdocsis [modifiers] -e <modem_cfg_file> <key_file> <output_file>\n");
   fprintf(stderr, "To encode multiple cable modem configuration files: \n\tdocsis [modifiers] -m <modem_cfg_file1> ... <key_file> <new_extension>\n");
   fprintf(stderr, "To encode a MTA configuration file: \n\tdocsis [modifiers] -p <mta_cfg_file> <output_file>\n");
   fprintf(stderr, "To encode multiple MTA configuration files: \n\tdocsis [modifiers] -m -p <mta_file1> ... <new_extension>\n");
-  fprintf(stderr, "To decode a CM or MTA config file: \n\tdocsis [modifiers] -d <binary_file>\n\n");
+  fprintf(stderr, "To decode a CM or MTA config file: \n\tdocsis [modifiers] -d <binary_file>\n");
+  fprintf(stderr, "To show parse result for docsis.def: \n\tdocsis -show\n\n");
 
   fprintf(stderr, "Where:\n<cfg_file>\t\t= name of text (human readable) cable modem or MTA \n"
 		  "\t\t\t  configuration file;\n"
@@ -290,6 +292,8 @@ usage ()
 	"	-nohash\n"
 	"		Removes the PacketCable SHA1 hash from the MTA config file when\n"
 	"		decoding.\n"
+	"	-f <file>\n"
+	"		read TLV definitions from file instead from /etc/docsis/docsis.def\n\n"
 	);
   fprintf(stderr, "\nSee examples/*.cfg for sample configuration files.\n");
   fprintf(stderr, "\nPlease report bugs or feature requests on GitHub.");
@@ -307,6 +311,7 @@ main (int argc, char *argv[])
   unsigned int encode_docsis = FALSE, decode_bin = FALSE, hash = 0;
   int i;
   int resolve_oids = 1;
+  int show_parsedef = 0;
 
   while (argc > 0) {
     argc--; argv++;
@@ -368,6 +373,11 @@ main (int argc, char *argv[])
     if (!strcmp (argv[0], "-dialplan")) {
       dialplan = 1;
       continue;
+    }
+
+    if (!strcmp (argv[0], "-show")) {
+      show_parsedef = 1;
+      goto load_parsedef;
     }
 
     /* the following command-line parameters are actions */
@@ -457,13 +467,16 @@ main (int argc, char *argv[])
       fclose(kf);
     }
 
+load_parsedef:
   if (parsedef_file) {
 	 (void)parsedef_loadfile(parsedef_file, 0);
   } else {
 	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.def", 0);
 	 (void)parsedef_loadfile(SYSCONFDIR "/docsis.local.def", 1);
   }
-  (void)parsedef_finish(); /* fill global_symtable */
+  (void)parsedef_finish(show_parsedef); /* fill global_symtable */
+  if (show_parsedef)
+     exit(0);
   setup_mib_flags(resolve_oids,custom_mibs);
 
   if (decode_bin)

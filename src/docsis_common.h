@@ -48,10 +48,12 @@ struct symbol_entry;
 typedef int (*encode_func_t) (unsigned char *, void *, struct symbol_entry *);
 typedef void (*decode_func_t) (unsigned char *, struct symbol_entry *, size_t length);
 
+#define DOCSIS_OID_BIT 0x1000000
+
 struct symbol_entry {
 	unsigned int id;
 	char sym_ident[50];
-	unsigned char docsis_code;
+	unsigned long docsis_code;
 	unsigned int parent_id;
 	encode_func_t encode_func;
 	decode_func_t decode_func;
@@ -62,7 +64,7 @@ struct symbol_entry {
 typedef struct symbol_entry symbol_type;
 
 struct tlv {
-	unsigned short docs_code;
+	unsigned long docs_code;
 	unsigned short tlv_len;
 	unsigned char tlv_value[TLV_VSIZE];
 	struct tlv *parent;

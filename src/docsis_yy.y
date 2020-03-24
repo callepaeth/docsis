@@ -55,6 +55,8 @@ struct tlv *_my_tlvtree_head;
 }
 
 %token <symptr>  T_IDENTIFIER
+%token <symptr>  T_VENDORSPECIFIC
+%token <symptr>  T_VENDORIDENTIFIER
 %token <uintval> T_INTEGER
 %token <symptr>  T_IDENT_COS
 %token <symptr>  T_IDENT_BPI
@@ -161,9 +163,13 @@ subsettings_stmt:  	T_IDENTIFIER '{' assignment_list  '}'	{
 			$$ = assemble_tlv_in_parent ( $1->docsis_code, $3 ); }
 		| T_IDENT_GENERIC T_TLV_CODE T_INTEGER '{' generic_assignment_list '}' {
 			$$ = assemble_tlv_in_parent ( $3, $5 ); }
+		| T_VENDORSPECIFIC '{' assignment_list '}' {
+			$$ = assemble_tlv_in_parent ( $1->docsis_code, $3 ); }
 		;
 
-assignment_stmt:  T_IDENTIFIER T_INTEGER ';' {
+assignment_stmt:	 T_VENDORIDENTIFIER T_HEX_STRING ';'  {
+			$$ = create_tlv ($1, (union t_val *)&$2);}
+                | T_IDENTIFIER T_INTEGER ';' {
 			$$ = create_tlv ($1, (union t_val *)&$2);}
 		| T_IDENTIFIER T_STRING ';'  {
 			$$ = create_tlv ($1, (union t_val *)&$2);}
@@ -604,7 +610,7 @@ unsigned int flatten_tlvsubtree ( unsigned char *buf, unsigned int used_size, st
 				continue;
 			}
 		} else {
-			fprintf(stderr, "Warning at line %d: TLV%d larger than 255 (%d)... skipping.\n", line, tlvptr->docs_code, tlvptr->tlv_len);
+			fprintf(stderr, "Warning at line %d: TLV%lu larger than 255 (%d)... skipping.\n", line, tlvptr->docs_code, tlvptr->tlv_len);
 			continue;
 		}
 	}

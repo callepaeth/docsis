@@ -55,7 +55,7 @@ struct typemap {
 #define TLVID_MAX	32
 
 struct tlvid {
-   unsigned char code[TLVID_MAX];
+   unsigned long code[TLVID_MAX];
    int len;
 };
 
@@ -68,10 +68,62 @@ struct entry {
    unsigned int high;
    /* */
    struct entry *children;
-   unsigned int id;
-   unsigned char docsis_code;
-   unsigned int parentid;
+   unsigned id;
+   unsigned long docsis_code;
+   unsigned parentid;
 };
+
+/* ------------------------------------------------------------------- */
+
+static void output_tlvid(FILE *fp, struct tlvid *tid)
+{
+   int i;
+   for (i=0; i < tid->len; i++) {
+      if (tid->code[i] & DOCSIS_OID_BIT) {
+         fprintf(fp, "%s0x%02lX%02lX%02lX", i ? "." : "",
+	             (tid->code[i] >> 16) & 0xff,
+	             (tid->code[i] >> 8) & 0xff,
+	             (tid->code[i]) & 0xff);
+      } else {
+         fprintf(fp, "%s%lu", i ? "." : "", tid->code[i]);
+      }
+   }
+}
+
+
+static void output_entries(FILE *fp, struct entry *ep, int level);
+
+static void output_entry(FILE *fp, struct entry *ep, int level)
+{
+    struct entry *child;
+
+    if (ep->docsis_code & DOCSIS_OID_BIT) {
+       fprintf(fp, "%4u %4u 0x%6lX %-40s",
+    		   ep->id,
+		   ep->parentid,
+		   ep->docsis_code & 0xffffff,
+		   ep->name);
+    } else {
+       fprintf(fp, "%4u %4u %8lu %-40s",
+    		   ep->id,
+		   ep->parentid,
+		   ep->docsis_code,
+		   ep->name);
+    }
+    fprintf(fp, " TLV ");
+    output_tlvid(fp, &ep->tid);
+    fprintf(fp, "\n");
+
+    for (child = ep->children; child; child = child->next) {
+       output_entry(fp, child, level+1);
+    }
+}
+
+static void output_entries(FILE *fp, struct entry *ep, int level)
+{
+    for (; ep; ep = ep->next)
+       output_entry(fp, ep, level);
+}
 
 /* ------------------------------------------------------------------- */
 
@@ -142,9 +194,9 @@ static void init_global_symtable(struct entry *ep)
 
 /* ------------------------------------------------------------------- */
 
-static unsigned int set_ids(unsigned nextid, struct entry *ep);
+static unsigned long set_ids(unsigned long nextid, struct entry *ep);
 
-static unsigned int set_id(unsigned nextid, struct entry *ep)
+static unsigned long set_id(unsigned long nextid, struct entry *ep)
 {
     struct entry *child;
     ep->id = nextid++;
@@ -155,7 +207,7 @@ static unsigned int set_id(unsigned nextid, struct entry *ep)
     return nextid;
 }
 
-static unsigned int set_ids(unsigned nextid, struct entry *ep)
+static unsigned long int set_ids(unsigned long nextid, struct entry *ep)
 {
     for (; ep; ep = ep->next)
        nextid = set_id(nextid, ep);
@@ -185,7 +237,14 @@ static int parse_tlvid(char *str, char **pp, struct tlvid *tid)
    s = str;
    while (*s && tid->len < TLVID_MAX-1) {
       char *tmp = s;
-      tid->code[tid->len] = strtol(s, &tmp, 10);
+      if (strncmp(s, "0x", 2) == 0) {
+         if (tid->len == 0 || tid->code[tid->len-1] != 43)
+            goto error;
+         tid->code[tid->len] = strtol(s, &tmp, 16);
+	 tid->code[tid->len] |= DOCSIS_OID_BIT;
+      } else {
+         tid->code[tid->len] = strtol(s, &tmp, 10);
+      }
       if (tmp == s)
          goto error;
       tid->len++;
@@ -345,9 +404,11 @@ int parsedef_loadfile(const char *fn, int optional)
    return errcount;
 }
 
-int parsedef_finish(void)
+int parsedef_finish(int show)
 {
    set_ids(0, list);
    init_global_symtable(list);
+   if (show)
+      output_entries(stdout, list, 0);
    return 0;
 }

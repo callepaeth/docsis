@@ -1,0 +1,16 @@
+# from edocsis.c
+202.43.0xBC0543           AVMOUI                       aggregate
+202.43.0xBC0543.8         VendorIDEncoding             hexstr              3          3
+202.43.0xBC0543.100       PPPoE                        aggregate
+202.43.0xBC0543.100.1     PPPoEEnable                  uchar               0          1
+202.43.0xBC0543.100.2     PPPoEUsername                string              0        255
+202.43.0xBC0543.100.2     PPPUsername                  string              0        255
+202.43.0xBC0543.100.3     PPPoEPassword                string              0        255
+202.43.0xBC0543.100.3     PPPPassword                  string              0        255
+202.43.0xBC0543.202       AVMErouter                   aggregate
+202.43.0xBC0543.202.1     SecondInterface              aggregate
+202.43.0xBC0543.202.1.1   InterfaceMode                uchar               0          3
+202.43.0xBC0543.202.1.2   EnableTR069                  uchar               0          1
+202.43.0xBC0543.202.1.3   FakePACM                     uchar               0          1
+202.43.0xBC0543.202.2     TR069onWAN                   uchar               0          1
+#EOF
