@@ -1,24 +1,30 @@
+docsis (0.9.8.1-4) unstable; urgency=medium
+
+  * src/docsis.local.def AVM vendor TLVs
+
+ -- Carsten Paeth <callepaeth@github.com>  Wed, 10 Jun 2020 12:24:14 +0200
+
 docsis (0.9.8.1-3) unstable; urgency=medium
 
- * vspecific with OUI now supported.
+  * vspecific with OUI now supported.
 
  -- Carsten Paeth <callepaeth@github.com>  Tue, 24 Mar 2020 10:11:44 +0100
 
 docsis (0.9.8.1-2) unstable; urgency=medium
 
- * 64Bit safety (decode_ushort and decode_uint).
- * Parse 'IPv4–Mapped IPv6 Address Format' as IPv6-Address
+  * 64Bit safety (decode_ushort and decode_uint).
+  * Parse 'IPv4–Mapped IPv6 Address Format' as IPv6-Address
 
  -- Carsten Paeth <callepaeth@github.com>  Wed, 08 Jan 2020 15:50:45 +0100
 
 docsis (0.9.8.1-1) unstable; urgency=medium
 
- * No error message on non existing /etc/docsis/docsis.local.def.
+  * No error message on non existing /etc/docsis/docsis.local.def.
 
  -- Carsten Paeth <callepaeth@github.com>  Tue, 23 Apr 2019 12:00:18 +0200
 
 docsis (0.9.8.1) unstable; urgency=medium
 
-  * Changed to use TLV definitions from /etc/docsis/docsis.def
+   * Changed to use TLV definitions from /etc/docsis/docsis.def
 
  -- Carsten Paeth <callepaeth@github.com>  Wed, 20 Mar 2019 14:27:50 +0100
